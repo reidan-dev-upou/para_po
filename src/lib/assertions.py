@@ -1,4 +1,6 @@
-"""A tiny test helper for tests: no pytest needed."""
+"""
+A tiny test helper for tests: no pytest needed.
+"""
 
 import operator as operator_module
 

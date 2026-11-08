@@ -1,4 +1,6 @@
-"""Menu option 5: exit."""
+"""
+Menu option 5: exit.
+"""
 
 
 def show_menu_5():

@@ -1,4 +1,5 @@
-"""The main menu: the setup header, the menu loop, and the handlers
+"""
+The main menu: the setup header, the menu loop, and the handlers
 for each menu option.
 """
 

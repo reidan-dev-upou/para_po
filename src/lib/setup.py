@@ -1,4 +1,6 @@
-"""One-time startup helpers: loading the program's data and files before the main menu starts.
+"""
+One-time startup helpers: loading the program's data and files before
+the main menu starts.
 """
 
 # TODO

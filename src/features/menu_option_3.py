@@ -1,4 +1,6 @@
-"""Menu option 3: admin mode (add/remove stops and segments)."""
+"""
+Menu option 3: admin mode (add/remove stops and segments).
+"""
 
 
 def show_menu_3():

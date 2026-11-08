@@ -1,4 +1,6 @@
-"""Reading and writing functions."""
+"""
+Reading and writing functions.
+"""
 
 
 # Author: Reiniel Dan Pablo

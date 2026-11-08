@@ -1,4 +1,6 @@
-"""Menu option 4: most searched destinations."""
+"""
+Menu option 4: most searched destinations.
+"""
 
 
 def show_menu_4():

@@ -1,4 +1,5 @@
-"""Para Po! Jeepney Route Finder entry point. Runs the program only;
+"""
+Para Po! Jeepney Route Finder entry point. Runs the program only;
 the actual code lives under src/.
 """
 

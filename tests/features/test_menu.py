@@ -1,4 +1,7 @@
-"""Tests for src/features/menu.py. Run with: python3 -m tests.features.test_menu"""
+"""
+Tests for src/features/menu.py.
+Run with: python3 -m tests.features.test_menu
+"""
 
 from src.lib.assertions import run_test
 from src.features.menu import update_setup_header
@@ -12,7 +15,7 @@ run_test(
 )
 
 run_test(
-    actual="Team HEXxx",
+    actual="Team HEX",
     expected=header,
     test_name="update_setup_header includes the group name",
     comparison="in",

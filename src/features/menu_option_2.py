@@ -1,4 +1,6 @@
-"""Menu option 2: view all stops."""
+"""
+Menu option 2: view all stops.
+"""
 
 
 def show_menu_2():
