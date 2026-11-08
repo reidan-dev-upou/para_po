@@ -1,0 +1,9 @@
+date,member_name,hours,what_i_did,functions_touched,problems_met
+2026-11-08,Reiniel Dan Pablo,0.25,Created para_po repo in GitHub,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.25,Created contribution log folder + README to instruct how each member will fill it out,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.5,Created base project structure with placeholder files and folders,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.5,Continued developing base project structure: main.py src/ data/,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.25,Added routes.csv and stops.csv as empty csv files in data/ based on project spec,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.5,Expanded src/ to features/ libs/ and ui/,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.25,Added version_log.txt base file,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.25,Added menu.py placeholder files to src/features and src/ui,none yet,none
