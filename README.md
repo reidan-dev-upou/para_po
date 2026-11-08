@@ -63,6 +63,63 @@ def add_numbers(first_number, second_number):
 python main.py
 ```
 
+## Tests
+
+### Running a test
+
+Run it as a module from the project root, not by its file path:
+
+```
+python3 -m tests.features.test_menu
+```
+
+Each check prints 🟢 PASS or 🔴 FAIL with the test's name.
+
+### Adding a test
+
+1. Create `tests/<folder>/test_<name>.py`, matching the path of the file
+   you're testing under `src/` (for example, `src/features/menu.py` gets
+   `tests/features/test_menu.py`).
+2. Import `run_test` from `src.lib.assertions`, and the function you're
+   testing.
+3. Call `run_test(actual, expected, test_name)` for each check. It
+   defaults to `comparison="=="`; the full list of comparisons is:
+
+   | `comparison` | Checks that... |
+   |---|---|
+   | `"=="` (default) | `actual` equals `expected` |
+   | `"!="` | `actual` does not equal `expected` |
+   | `"<"` | `actual` is less than `expected` |
+   | `"<="` | `actual` is less than or equal to `expected` |
+   | `">"` | `actual` is greater than `expected` |
+   | `">="` | `actual` is greater than or equal to `expected` |
+   | `"in"` | `actual` is contained in `expected` (e.g. a substring check) |
+   | `"not in"` | `actual` is not contained in `expected` |
+
+Cover the normal case and the edge/invalid-input cases, not just the
+happy path. The `Quality and Testing Lead` will check that all cases are
+covered.
+
+```python
+"""Tests for src/lib/utils.py. Run with: python3 -m tests.lib.test_utils"""
+
+from src.lib.assertions import run_test
+from src.lib.utils import add_numbers
+
+run_test(
+    actual=add_numbers(first_number=2, second_number=3),
+    expected=5,
+    test_name="add_numbers adds two positive numbers",
+)
+
+run_test(
+    actual=add_numbers(first_number=2, second_number=3),
+    expected=[4, 5, 6],
+    test_name="add_numbers result is one of the expected values",
+    comparison="in",
+)
+```
+
 ## Setup (one time)
 
 Type all the `git ...` commands below into a terminal (Terminal on Mac,
