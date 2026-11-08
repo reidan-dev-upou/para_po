@@ -29,10 +29,11 @@ para_po/
 
 ## Writing a function
 
-- Put it in the right file: a menu option goes in `src/features/menu.py`,
-  display text in `src/user_interface/menu.py`, a fixed value in
-  `src/lib/constants.py`, file reading/writing in `src/lib/io.py`, and a
-  small shared helper in `src/lib/utils.py`.
+- Put it in the right file: a menu option (logic and screen text together)
+  goes in its own `src/features/menu_option_N.py`, the menu loop itself in
+  `src/features/menu.py`, a fixed value in `src/lib/constants.py`, file
+  reading/writing in `src/lib/io.py`, and a small shared helper in
+  `src/lib/utils.py`.
 - Name it in `snake_case`, as `<ACTION>_<WHAT IT ACTS ON>`, for example
   `get_value_a` or `write_output`. Not `doStuff` or `function1`.
 - Give it a docstring explaining what it does, its parameters, and what
