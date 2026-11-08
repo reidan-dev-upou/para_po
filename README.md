@@ -10,11 +10,13 @@ para_po/
 ├── src/                 program code
 │   ├── features/
 │   │   └── menu.py      menu option handlers (find route, admin mode, etc.)
-│   ├── ui/
+│   ├── user_interface/
 │   │   └── menu.py      screens and menu text
-│   └── libs/
+│   └── lib/
 │       ├── constants.py fixed values: file paths, group settings
-│       └── setup.py     one-time startup helpers
+│       ├── setup.py     one-time startup helpers
+│       ├── io.py        reading and writing data files
+│       └── utils.py     small shared helpers (input validation, formatting)
 ├── data/                data files
 ├── contribution_logs/   work logs
 └── deliverables/        submission files
@@ -23,6 +25,35 @@ para_po/
 - `data/`: `stops.csv`, `routes.csv` (route network), `trip_history.csv` (generated at runtime)
 - `contribution_logs/`: each member's own work log, see its README for how to fill it
 - `deliverables/`: design doc, logs, and the course-facing README for submission
+
+## Writing a function
+
+- Put it in the right file: a menu option goes in `src/features/menu.py`,
+  display text in `src/user_interface/menu.py`, a fixed value in
+  `src/lib/constants.py`, file reading/writing in `src/lib/io.py`, and a
+  small shared helper in `src/lib/utils.py`.
+- Name it in `snake_case`, as `<ACTION>_<WHAT IT ACTS ON>`, for example
+  `get_value_a` or `write_output`. Not `doStuff` or `function1`.
+- Give it a docstring explaining what it does, its parameters, and what
+  it returns.
+- Add an author tag, `# Author: <your name>`, right above the function.
+- Name variables to say what they hold, not `a`, `b`, `x`, or `temp`.
+- Add a `#` comment inside the function wherever a step isn't obvious
+  from the code alone, describing what that step is doing.
+
+```python
+# Author: Juan Dela Cruz
+def add_numbers(first_number, second_number):
+    """Add two numbers together.
+
+    first_number: the first number to add.
+    second_number: the second number to add.
+
+    Returns the sum of the two numbers.
+    """
+    # add the two numbers and return the total
+    return first_number + second_number
+```
 
 ## Running it
 
