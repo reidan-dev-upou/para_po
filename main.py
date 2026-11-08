@@ -3,7 +3,7 @@ the actual code lives under src/.
 """
 
 from src.lib.setup import load_setup
-from src.user_interface.menu import show_main_menu, show_setup_header
+from src.features.menu import show_main_menu, show_setup_header
 
 def main():
 

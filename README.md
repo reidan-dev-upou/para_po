@@ -9,14 +9,15 @@ para_po/
 ├── main.py              entry point, run this
 ├── src/                 program code
 │   ├── features/
-│   │   └── menu.py      menu option handlers (find route, admin mode, etc.)
-│   ├── user_interface/
-│   │   └── menu.py      screens and menu text
+│   │   ├── menu.py          menu loop and setup header
+│   │   └── menu_option_N.py one file per menu option, logic and screen text together
 │   └── lib/
 │       ├── constants.py fixed values: file paths, group settings
 │       ├── setup.py     one-time startup helpers
 │       ├── io.py        reading and writing data files
-│       └── utils.py     small shared helpers (input validation, formatting)
+│       ├── utils.py     small shared helpers (input validation, formatting)
+│       └── assertions.py run_test(), the test helper, see Tests below
+├── tests/               one test_<name>.py per file it tests, same folder shape as src/
 ├── data/                data files
 ├── contribution_logs/   work logs
 └── deliverables/        submission files
