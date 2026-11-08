@@ -1,0 +1,1 @@
+v00 | 2026-11-08 | by: Reiniel Dan Pablo | Non-working scaffolding: main.py, src/ (features, libs, user_interface), data/ (empty stops.csv, routes.csv)
