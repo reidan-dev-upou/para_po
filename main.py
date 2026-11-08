@@ -12,8 +12,9 @@ def main():
     # Once loaded, display setup menu header
     show_setup_header()
 
+    
     # Displaying the main menu interface
-    show_main_menu(setup_data)
+    show_main_menu()
 
 
 
