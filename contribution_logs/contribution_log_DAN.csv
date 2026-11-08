@@ -20,3 +20,5 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-08,Reiniel Dan Pablo,0.25,Updated README project structure and function-writing guide for the flattened menu,none,none
 2026-11-08,Reiniel Dan Pablo,0.5,Added a lightweight test helper with flexible comparisons,run_test,none
 2026-11-08,Reiniel Dan Pablo,0.75,Added test files for src and a Tests section to README,none,none
+2026-11-08,Reiniel Dan Pablo,0.5,Reformatted module docstrings to multi-line style across the project,none,none
+2026-11-08,Reiniel Dan Pablo,0.5,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
