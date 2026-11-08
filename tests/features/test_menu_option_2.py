@@ -1,1 +1,6 @@
-"""Tests for src/features/menu_option_2.py. Run with: python3 -m tests.features.test_menu_option_2"""
+"""
+Tests for src/features/menu_option_2.py.
+Run with: python3 -m tests.features.test_menu_option_2
+"""
+
+from src.lib.assertions import run_test
