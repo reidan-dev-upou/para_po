@@ -23,3 +23,4 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-08,Reiniel Dan Pablo,0.5,Reformatted module docstrings to multi-line style across the project,none,none
 2026-11-08,Reiniel Dan Pablo,0.5,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
 2026-11-12,Reiniel Dan Pablo,0.1,Added folders for algorithms deliverables, none, none
+2026-11-12,Reiniel Dan Pablo,0.5,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
