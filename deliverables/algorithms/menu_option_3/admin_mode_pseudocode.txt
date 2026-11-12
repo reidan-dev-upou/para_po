@@ -1,0 +1,33 @@
+DEFINE function admin_mode_password_checker with admin_mode_user_attempt as its parameter
+      IF admin_mode_user_attempt == "Hex" THEN
+           RETURN True
+      ELSE
+           RETURN False
+      END IF
+END FUNCTION
+
+START
+DECLARE admin_mode_user_attempt, checker_result
+SET checker_result to False
+Choose [3] Admin Mode
+WHILE True
+      DISPLAY "Please enter password: "
+      DISPLAY "Enter 5 to exit"
+      ASSIGN response to variable admin_mode_user_attempt
+      IF admin_mode_user_attempt == "5" THEN
+           break
+      END IF
+      CALL admin_mode_password_checker function with admin_mode_user_attempt as its argument
+      ASSIGN returned value of admin_mode_password_checker function to checker_result
+      IF checker_result == True THEN
+           break
+      ELSE
+           DISPLAY "Incorrect password. Please try again"
+      END IF
+END WHILE
+IF checker_result == True THEN
+     CALL function to go to admin mode options (function to be decided)
+ELSE
+     return to main menu
+END IF
+END
