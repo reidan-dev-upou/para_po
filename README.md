@@ -26,6 +26,9 @@ para_po/
 - `data/`: `stops.csv`, `routes.csv` (route network), `trip_history.csv` (generated at runtime)
 - `contribution_logs/`: each member's own work log, see its README for how to fill it
 - `deliverables/`: design doc, logs, and the course-facing README for submission
+  - `deliverables/algorithms/`: the algorithms design deliverable (flowchart or
+    pseudocode), one folder per `src/features/menu*.py` file it covers
+    (`menu`, `menu_option_1` to `menu_option_4`)
 
 ## Writing a function
 
