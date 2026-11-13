@@ -1,9 +1,30 @@
 DEFINE function admin_mode_password_checker with admin_mode_user_attempt as its parameter
-      IF admin_mode_user_attempt == "Hex" THEN
+      IF admin_mode_user_attempt equal to "Hex" THEN
            RETURN True
       ELSE
            RETURN False
       END IF
+END FUNCTION
+
+DEFINE function admin_mode_choices with no parameters
+      WHILE True
+            DISPLAY "[1] Add a stop  [2] Remove a stop  [3] Add a segment  [4] Remove a segment  [5] Back"
+            DISPLAY "Choice: "
+            ASSIGN response to variable choice with spaces removed using strip
+            IF choice equal to "1" THEN
+                  CALL add a stop function (function to be decided)
+            ELSE IF choice equal to "2" THEN
+                  call remove a stop function (function to be decided)
+            ELSE IF choice equal to "3" THEN
+                  call add a segment function (to be decided)
+            ELSE IF choice equal to "4" THEN
+                  call remove a segment function
+            ELSE IF choice equal to "5" THEN
+                  RETURN
+            ELSE
+                  DISPLAY "Incorrect choice. Please only choose from 1-5."
+            END IF
+      END WHILE
 END FUNCTION
 
 START
@@ -13,20 +34,20 @@ Choose [3] Admin Mode
 WHILE True
       DISPLAY "Please enter password: "
       DISPLAY "Enter 5 to exit"
-      ASSIGN response to variable admin_mode_user_attempt
-      IF admin_mode_user_attempt == "5" THEN
+      ASSIGN response to variable admin_mode_user_attempt with spaces removed using strip
+      IF admin_mode_user_attempt equal to "5" THEN
            break
       END IF
       CALL admin_mode_password_checker function with admin_mode_user_attempt as its argument
       ASSIGN returned value of admin_mode_password_checker function to checker_result
-      IF checker_result == True THEN
+      IF checker_result equal to True THEN
            break
       ELSE
            DISPLAY "Incorrect password. Please try again"
       END IF
 END WHILE
-IF checker_result == True THEN
-     CALL function to go to admin mode options (function to be decided)
+IF checker_result equal to True THEN
+     CALL admin_mode_choices function
 ELSE
      return to main menu
 END IF
