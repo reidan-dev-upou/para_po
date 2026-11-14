@@ -1,26 +1,26 @@
 date,member_name,hours,what_i_did,functions_touched,problems_met
-2026-11-08,Reiniel Dan Pablo,0.25,Created para_po repo in GitHub,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.5,Set up contribution and version logs,none yet,none
-2026-11-08,Reiniel Dan Pablo,2.0,Built base project scaffolding: main.py src/ (features libs ui) and data/ placeholder files,none yet,none
-2026-11-08,Reiniel Dan Pablo,1.25,Organized deliverables folder with design document and README drafts,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.75,Wrote root README project structure and git setup/workflow guide,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.5,Renamed src/libs and src/ui to src/lib and src/user_interface,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.75,Added function-writing guide to README: naming comments author tags,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.5,Added constants io and utils helper files in src/lib,none yet,none
-2026-11-08,Reiniel Dan Pablo,0.75,Added setup functions,"get_group_settings, get_group_seed, load_setup",none
-2026-11-08,Reiniel Dan Pablo,0.5,Added menu display functions,"show_setup_header, show_main_menu",none
-2026-11-08,Reiniel Dan Pablo,0.5,Wired up main.py entry point,main,"Import error from wrong package path, fixed by importing from src instead of para_po.src"
-2026-11-08,Reiniel Dan Pablo,0.25,Added menu text constants,none,none
-2026-11-08,Reiniel Dan Pablo,0.5,Added menu input reading function,read_menu_input,"Function returned the raw input string instead of an int, fixed"
-2026-11-08,Reiniel Dan Pablo,0.5,Added setup header fill-in function,update_setup_header,"str.replace() doesn't modify in place, fixed by reassigning the result"
-2026-11-08,Reiniel Dan Pablo,0.75,Added the five menu option files,"show_menu_1, show_menu_2, show_menu_3, show_menu_4, show_menu_5",none
-2026-11-08,Reiniel Dan Pablo,0.75,Wired up main menu loop,show_main_menu,"Wrong import path again, and a circular import from menu options calling back into show_main_menu; replaced recursion with a while loop"
-2026-11-08,Reiniel Dan Pablo,0.25,Simplified main menu call in main.py,main,none
-2026-11-08,Reiniel Dan Pablo,0.75,Flattened src/user_interface into src/features so each menu option is one file,"show_menu_1, show_menu_2, show_menu_3, show_menu_4, show_menu_5, show_main_menu",none
-2026-11-08,Reiniel Dan Pablo,0.25,Updated README project structure and function-writing guide for the flattened menu,none,none
-2026-11-08,Reiniel Dan Pablo,0.5,Added a lightweight test helper with flexible comparisons,run_test,none
-2026-11-08,Reiniel Dan Pablo,0.75,Added test files for src and a Tests section to README,none,none
-2026-11-08,Reiniel Dan Pablo,0.5,Reformatted module docstrings to multi-line style across the project,none,none
-2026-11-08,Reiniel Dan Pablo,0.5,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
+2026-11-08,Reiniel Dan Pablo,0.1,Created para_po repo in GitHub,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.3,Set up contribution and version logs,none yet,none
+2026-11-08,Reiniel Dan Pablo,1.75,Built base project scaffolding: main.py src/ (features libs ui) and data/ placeholder files,none yet,none
+2026-11-08,Reiniel Dan Pablo,1.1,Organized deliverables folder with design document and README drafts,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.8,Wrote root README project structure and git setup/workflow guide,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.15,Renamed src/libs and src/ui to src/lib and src/user_interface,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.6,Added function-writing guide to README: naming comments author tags,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.45,Added constants io and utils helper files in src/lib,none yet,none
+2026-11-08,Reiniel Dan Pablo,0.65,Added setup functions,"get_group_settings, get_group_seed, load_setup",none
+2026-11-08,Reiniel Dan Pablo,0.55,Added menu display functions,"show_setup_header, show_main_menu",none
+2026-11-08,Reiniel Dan Pablo,0.35,Wired up main.py entry point,main,"Import error from wrong package path, fixed by importing from src instead of para_po.src"
+2026-11-08,Reiniel Dan Pablo,0.15,Added menu text constants,none,none
+2026-11-08,Reiniel Dan Pablo,0.4,Added menu input reading function,read_menu_input,"Function returned the raw input string instead of an int, fixed"
+2026-11-08,Reiniel Dan Pablo,0.45,Added setup header fill-in function,update_setup_header,"str.replace() doesn't modify in place, fixed by reassigning the result"
+2026-11-08,Reiniel Dan Pablo,0.9,Added the five menu option files,"show_menu_1, show_menu_2, show_menu_3, show_menu_4, show_menu_5",none
+2026-11-08,Reiniel Dan Pablo,0.85,Wired up main menu loop,show_main_menu,"Wrong import path again, and a circular import from menu options calling back into show_main_menu; replaced recursion with a while loop"
+2026-11-08,Reiniel Dan Pablo,0.1,Simplified main menu call in main.py,main,none
+2026-11-08,Reiniel Dan Pablo,0.7,Flattened src/user_interface into src/features so each menu option is one file,"show_menu_1, show_menu_2, show_menu_3, show_menu_4, show_menu_5, show_main_menu",none
+2026-11-08,Reiniel Dan Pablo,0.2,Updated README project structure and function-writing guide for the flattened menu,none,none
+2026-11-08,Reiniel Dan Pablo,0.45,Added a lightweight test helper with flexible comparisons,run_test,none
+2026-11-08,Reiniel Dan Pablo,0.8,Added test files for src and a Tests section to README,none,none
+2026-11-08,Reiniel Dan Pablo,0.3,Reformatted module docstrings to multi-line style across the project,none,none
+2026-11-08,Reiniel Dan Pablo,0.35,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
 2026-11-12,Reiniel Dan Pablo,0.1,Added folders for algorithms deliverables, none, none
-2026-11-12,Reiniel Dan Pablo,0.5,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
+2026-11-12,Reiniel Dan Pablo,0.6,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
