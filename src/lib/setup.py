@@ -3,6 +3,8 @@ One-time startup helpers: loading the program's data and files before
 the main menu starts.
 """
 
+import csv
+
 # TODO
 # Author: TBA
 def get_group_settings():
