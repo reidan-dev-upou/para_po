@@ -17,7 +17,8 @@ else:
     extra_km = distance - base_distance  
     fare = base_fare + (extra_km * fare_per_extra_km)
 
-#[D] Student/Senior/PWD: D        
+# [D] Student/Senior/PWD: D
+  
 if passenger_type.upper() == 'D':
     fare = fare * (1 - discount_rate) 
 
