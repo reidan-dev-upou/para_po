@@ -24,3 +24,6 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-08,Reiniel Dan Pablo,0.35,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
 2026-11-12,Reiniel Dan Pablo,0.1,Added folders for algorithms deliverables, none, none
 2026-11-12,Reiniel Dan Pablo,0.6,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
+2026-11-14,Reiniel Dan Pablo,0.1,Tagged and pushed commit as v01,none,none
+2026-11-14,Reiniel Dan Pablo,0.2,Merged all dev_* branches into main (dev_JP dev_KAROL dev_ROSE dev_kayleen dev_mondi),none,none
+2026-11-14,Reiniel Dan Pablo,0.1,Started WIP on v02,none,none
