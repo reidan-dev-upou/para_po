@@ -21,10 +21,6 @@ else:
 # [D] Student/Senior/PWD: D
 
 if passenger_type.upper() == 'D':
-    fare = fare * (1 - discount_rate) 
+    fare = fare * (1 - (discount_rate / 100)) 
 
 print(f"P{fare:.2f}  |  {distance} km  |  {transfers} transfers")
-print (base_fare)
-print (base_distance)
-print (fare_per_extra_km)
-print (discount_rate)
