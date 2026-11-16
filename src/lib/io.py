@@ -45,7 +45,4 @@ def write_csv(file_path, data):
     with open(file_path, 'a', newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(data)
-        
-data = read_csv("test.csv")
-
-print(data)
+    
