@@ -2,6 +2,7 @@
 Reading and writing functions.
 """
 
+import csv
 
 # Author: Reiniel Dan Pablo
 def read_menu_input():
@@ -25,14 +26,26 @@ def read_menu_input():
 # Author: TBA
 def read_csv(file_path):
     """
-    To be updated.
+    Read csv files
     """
-    pass
+    with open(file_path, 'r', newline="", encoding="utf-8") as file:
+            #Reading the csv rows as a dictionary.
+            reader = csv.DictReader(file)
+            #Return all records as a list.
+            return list(reader)
+    
 
 # TODO
 # Author: TBA
-def write_csv(file_path):
+def write_csv(file_path, data):
     """
-    To be updated.
+    writing additional rows of data to CSV files
     """
-    pass
+    #using the 'a' mode to append data to the csv file. To preserve existing records and headers
+    with open(file_path, 'a', newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow(data)
+        
+data = read_csv("test.csv")
+
+print(data)

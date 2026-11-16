@@ -1,0 +1,174 @@
+route_name,stop_a,stop_b,distance_km
+R1 Angeles City - Cubao,Angeles City,Pandan,1.1
+R1 Angeles City - Cubao,Pandan,Telabastagan,5.0
+R1 Angeles City - Cubao,Telabastagan,Sindilan,5.4
+R1 Angeles City - Cubao,Sindilan,San Agustin,4.5
+R1 Angeles City - Cubao,San Agustin,Dolores,2.0
+R1 Angeles City - Cubao,Dolores,San Fernando,2.5
+R1 Angeles City - Cubao,San Fernando,San Simon,7.5
+R1 Angeles City - Cubao,San Simon,San Vicente,4.0
+R1 Angeles City - Cubao,San Vicente,Calumpit,4.0
+R1 Angeles City - Cubao,Calumpit,Malolos,8.0
+R1 Angeles City - Cubao,Malolos,Guiguinto,9.0
+R1 Angeles City - Cubao,Guiguinto,Balagtas,3.0
+R1 Angeles City - Cubao,Balagtas,Bocaue,4.0
+R1 Angeles City - Cubao,Bocaue,Meycauayan,7.3
+R1 Angeles City - Cubao,Meycauayan,Valenzuela,5.9
+R1 Angeles City - Cubao,Valenzuela,Caloocan,4.5
+R1 Angeles City - Cubao,Caloocan,Cubao,10.5
+R2 QMC - Cubao,Quezon Memorial Circle,Quezon City Hall,1.0
+R2 QMC - Cubao,Quezon City Hall,Masigla Street,0.8
+R2 QMC - Cubao,Masigla Street,Kamias Road,1.2
+R2 QMC - Cubao,Kamias Road,Brgy. Silangan Hall,0.6
+R2 QMC - Cubao,Brgy. Silangan Hall,15th Avenue,0.5
+R2 QMC - Cubao,15th Avenue,Art in Island,0.2
+R2 QMC - Cubao,Art in Island,P. Tuazon,0.4
+R2 QMC - Cubao,P. Tuazon,Cubao,0.2
+R3 San Jose Batangas - Cubao,San Jose Batangas,Banaybay II,4.8
+R3 San Jose Batangas - Cubao,Banaybay II,Banaybay,1.9
+R3 San Jose Batangas - Cubao,Banaybay,Robinsons Lipa,4.5
+R3 San Jose Batangas - Cubao,Robinsons Lipa,Marauoy,3.9
+R3 San Jose Batangas - Cubao,Marauoy,Inosloban,2.0
+R3 San Jose Batangas - Cubao,Inosloban,Malvar,6.3
+R3 San Jose Batangas - Cubao,Malvar,Darasa,2.8
+R3 San Jose Batangas - Cubao,Darasa,Tanauan City,1.9
+R3 San Jose Batangas - Cubao,Tanauan City,Santo Tomas Rotonda,2.4
+R3 San Jose Batangas - Cubao,Santo Tomas Rotonda,LPU - Laguna,6.3
+R3 San Jose Batangas - Cubao,LPU - Laguna,Turbina,3.8
+R3 San Jose Batangas - Cubao,Turbina,Real Calamba,1.6
+R3 San Jose Batangas - Cubao,Real Calamba,SM City Calamba,0.8
+R3 San Jose Batangas - Cubao,SM City Calamba,Parian,1.2
+R3 San Jose Batangas - Cubao,Parian,Cabuyao City,8.1
+R3 San Jose Batangas - Cubao,Cabuyao City,OLFU - Sta. Rosa,3.9
+R3 San Jose Batangas - Cubao,OLFU - Sta. Rosa,Platero,2.4
+R3 San Jose Batangas - Cubao,Platero,Biñan,1.7
+R3 San Jose Batangas - Cubao,Biñan,Canlalay,1.7
+R3 San Jose Batangas - Cubao,Canlalay,San Vicente Rd,2.8
+R3 San Jose Batangas - Cubao,San Vicente Rd,SM Center Muntinlupa,2.0
+R3 San Jose Batangas - Cubao,SM Center Muntinlupa,Muntinlupa City Hall,2.0
+R3 San Jose Batangas - Cubao,Muntinlupa City Hall,Bautista Street Bayanan,1.7
+R3 San Jose Batangas - Cubao,Bautista Street Bayanan,Starmall Alabang,0.8
+R3 San Jose Batangas - Cubao,Starmall Alabang,Sucat,4.0
+R3 San Jose Batangas - Cubao,Sucat,SM City Bicutan,4.0
+R3 San Jose Batangas - Cubao,SM City Bicutan,Magallanes Station - LRT 1,7.2
+R3 San Jose Batangas - Cubao,Magallanes Station - LRT 1,One Ayala,1.2
+R3 San Jose Batangas - Cubao,One Ayala,Buendia,0.9
+R3 San Jose Batangas - Cubao,Buendia,Guadalupe,1.6
+R3 San Jose Batangas - Cubao,Guadalupe,SM Megamall,2.8
+R3 San Jose Batangas - Cubao,SM Megamall,Kamias Terminal,5.3
+R3 San Jose Batangas - Cubao,Kamias Terminal,East Avenue Medical Center,1.3
+R3 San Jose Batangas - Cubao,East Avenue Medical Center,Quezon City Hall,0.5
+R3 San Jose Batangas - Cubao,Quezon City Hall,Masigla Street,0.8
+R3 San Jose Batangas - Cubao,Masigla Street,Kamias Road,1.2
+R3 San Jose Batangas - Cubao,Kamias Road,Brgy. Silangan Hall,0.6
+R3 San Jose Batangas - Cubao,Brgy. Silangan Hall,15th Avenue,0.5
+R3 San Jose Batangas - Cubao,15th Avenue,Art in Island,0.2
+R3 San Jose Batangas - Cubao,Art in Island,P. Tuazon,0.4
+R3 San Jose Batangas - Cubao,P. Tuazon,Cubao,0.2
+R4 Los Baños Laguna - Cubao,Los Baños Laguna,Pansol,4.7
+R4 Los Baños Laguna - Cubao,Pansol,Calamba,4.2
+R4 Los Baños Laguna - Cubao,Calamba,Parian,1.2
+R4 Los Baños Laguna - Cubao,Parian,Cabuyao City,8.1
+R4 Los Baños Laguna - Cubao,Cabuyao City,OLFU - Sta. Rosa,3.9
+R4 Los Baños Laguna - Cubao,OLFU - Sta. Rosa,Platero,2.4
+R4 Los Baños Laguna - Cubao,Platero,Biñan,1.7
+R4 Los Baños Laguna - Cubao,Biñan,Canlalay,1.7
+R4 Los Baños Laguna - Cubao,Canlalay,San Vicente Rd,2.8
+R4 Los Baños Laguna - Cubao,San Vicente Rd,SM Center Muntinlupa,2.0
+R4 Los Baños Laguna - Cubao,SM Center Muntinlupa,Muntinlupa City Hall,2.0
+R4 Los Baños Laguna - Cubao,Muntinlupa City Hall,Bautista Street Bayanan,1.7
+R4 Los Baños Laguna - Cubao,Bautista Street Bayanan,Starmall Alabang,0.8
+R4 Los Baños Laguna - Cubao,Starmall Alabang,Sucat,4.0
+R4 Los Baños Laguna - Cubao,Sucat,SM City Bicutan,4.0
+R4 Los Baños Laguna - Cubao,SM City Bicutan,Magallanes Station - LRT 1,7.2
+R4 Los Baños Laguna - Cubao,Magallanes Station - LRT 1,One Ayala,1.2
+R4 Los Baños Laguna - Cubao,One Ayala,Buendia,0.9
+R4 Los Baños Laguna - Cubao,Buendia,Guadalupe,1.6
+R4 Los Baños Laguna - Cubao,Guadalupe,SM Megamall,2.8
+R4 Los Baños Laguna - Cubao,SM Megamall,B Serrano,2.4
+R4 Los Baños Laguna - Cubao,B Serrano,Main Avenue,0.9
+R4 Los Baños Laguna - Cubao,Main Avenue,SM City Araneta,0.7
+R4 Los Baños Laguna - Cubao,SM City Araneta,Cubao,0.2
+R5 Muntinlupa City Hall - Cubao,Muntinlupa City Hall,Bautista Street Bayanan,1.7
+R5 Muntinlupa City Hall - Cubao,Bautista Street Bayanan,Starmall Alabang,0.8
+R5 Muntinlupa City Hall - Cubao,Starmall Alabang,Sucat,4.0
+R5 Muntinlupa City Hall - Cubao,Sucat,SM City Bicutan,4.0
+R5 Muntinlupa City Hall - Cubao,SM City Bicutan,Magallanes Station - LRT 1,7.2
+R5 Muntinlupa City Hall - Cubao,Magallanes Station - LRT 1,One Ayala,1.2
+R5 Muntinlupa City Hall - Cubao,One Ayala,Buendia,0.9
+R5 Muntinlupa City Hall - Cubao,Buendia,Guadalupe,1.6
+R5 Muntinlupa City Hall - Cubao,Guadalupe,SM Megamall,2.8
+R5 Muntinlupa City Hall - Cubao,SM Megamall,B Serrano,2.4
+R5 Muntinlupa City Hall - Cubao,B Serrano,Main Avenue,0.9
+R5 Muntinlupa City Hall - Cubao,Main Avenue,SM City Araneta,0.7
+R5 Muntinlupa City Hall - Cubao,SM City Araneta,Cubao,0.2
+R6 Mandaluyong City Hall - Cubao,Mandaluyong City Hall,Maysilo Cir Stop,0.28
+R6 Mandaluyong City Hall - Cubao,Maysilo Cir Stop,Martinez Public Market,0.62
+R6 Mandaluyong City Hall - Cubao,Martinez Public Market,Mandaluyong City Medical Center,0.2
+R6 Mandaluyong City Hall - Cubao,Mandaluyong City Medical Center,Addition Hill Integrated School,0.8
+R6 Mandaluyong City Hall - Cubao,Addition Hill Integrated School,Mandaluyong College,0.4
+R6 Mandaluyong City Hall - Cubao,Mandaluyong College,Catoda Terminal,0.5
+R6 Mandaluyong City Hall - Cubao,Catoda Terminal,Mandaluyong Arena,0.6
+R6 Mandaluyong City Hall - Cubao,Mandaluyong Arena,Jose Rizal University,0.3
+R6 Mandaluyong City Hall - Cubao,Jose Rizal University,Granada Street San Juan,3.4
+R6 Mandaluyong City Hall - Cubao,Granada Street San Juan,Hemady Street Gilmore,1.0
+R6 Mandaluyong City Hall - Cubao,Hemady Street Gilmore,Robinsons Magnolia,0.3
+R6 Mandaluyong City Hall - Cubao,Robinsons Magnolia,Camp Panopio Hospital,1.8
+R6 Mandaluyong City Hall - Cubao,Camp Panopio Hospital,SM City Araneta,0.6
+R6 Mandaluyong City Hall - Cubao,SM City Araneta,Cubao,0.2
+R7 Cavite City Hall - Cubao,Cavite City Hall,San Sebastian College Cañacao Campus,0.3
+R7 Cavite City Hall - Cubao,San Sebastian College Cañacao Campus,San Roque Parish Church,0.7
+R7 Cavite City Hall - Cubao,San Roque Parish Church,First Baptist Church of Cavite City,0.6
+R7 Cavite City Hall - Cubao,First Baptist Church of Cavite City,Bautista Hospital,0.5
+R7 Cavite City Hall - Cubao,Bautista Hospital,Ronquillo,0.3
+R7 Cavite City Hall - Cubao,Ronquillo,Cavite State University - Cavite City Campus,2.2
+R7 Cavite City Hall - Cubao,Cavite State University - Cavite City Campus,San Rafael,1.2
+R7 Cavite City Hall - Cubao,San Rafael,Noveleta,2.5
+R7 Cavite City Hall - Cubao,Noveleta,Sta. Isabela,1.4
+R7 Cavite City Hall - Cubao,Sta. Isabela,Savemore Kawit,1.5
+R7 Cavite City Hall - Cubao,Savemore Kawit,Kaingen Barangay Hall,1.0
+R7 Cavite City Hall - Cubao,Kaingen Barangay Hall,Marulas,0.4
+R7 Cavite City Hall - Cubao,Marulas,Tirona,0.7
+R7 Cavite City Hall - Cubao,Tirona,Cuenca Ancestral House,3.6
+R7 Cavite City Hall - Cubao,Cuenca Ancestral House,Talaba II Barangay Hall,2.0
+R7 Cavite City Hall - Cubao,Talaba II Barangay Hall,Villar Sipag Jeep Terminal,2.6
+R7 Cavite City Hall - Cubao,Villar Sipag Jeep Terminal,SM City Sucat,2.1
+R7 Cavite City Hall - Cubao,SM City Sucat,A. Bonifacio,0.6
+R7 Cavite City Hall - Cubao,A. Bonifacio,Ninoy Aquino Avenue - LRT 1,1.4
+R7 Cavite City Hall - Cubao,Ninoy Aquino Avenue - LRT 1,Sto. Niño Parañaque,0.5
+R7 Cavite City Hall - Cubao,Sto. Niño Parañaque,NAIA Terminal 4,2.9
+R7 Cavite City Hall - Cubao,NAIA Terminal 4,Partas Bus Terminal Pasay,1.6
+R7 Cavite City Hall - Cubao,Partas Bus Terminal Pasay,Five Star Bus (Pasay Terminal),0.2
+R7 Cavite City Hall - Cubao,Five Star Bus (Pasay Terminal),St. Jude Bus Terminal,1.0
+R7 Cavite City Hall - Cubao,St. Jude Bus Terminal,Magallanes Station - LRT 1,1.0
+R7 Cavite City Hall - Cubao,Magallanes Station - LRT 1,One Ayala,1.2
+R7 Cavite City Hall - Cubao,One Ayala,Buendia,0.9
+R7 Cavite City Hall - Cubao,Buendia,Guadalupe,1.6
+R7 Cavite City Hall - Cubao,Guadalupe,SM Megamall,2.8
+R7 Cavite City Hall - Cubao,SM Megamall,B Serrano,2.4
+R7 Cavite City Hall - Cubao,B Serrano,Main Avenue,0.9
+R7 Cavite City Hall - Cubao,Main Avenue,SM City Araneta,0.7
+R7 Cavite City Hall - Cubao,SM City Araneta,Cubao,0.2
+R8 Robinsons Place Antipolo - Cubao,Robinsons Place Antipolo,Assumption Specialty Hospital and Medical Center,1.6
+R8 Robinsons Place Antipolo - Cubao,Assumption Specialty Hospital and Medical Center,Olalia,0.1
+R8 Robinsons Place Antipolo - Cubao,Olalia,Richdale Subdivision,0.2
+R8 Robinsons Place Antipolo - Cubao,Richdale Subdivision,Senora Dela Paz,0.7
+R8 Robinsons Place Antipolo - Cubao,Senora Dela Paz,La Montana,1.0
+R8 Robinsons Place Antipolo - Cubao,La Montana,Cloud 9,0.4
+R8 Robinsons Place Antipolo - Cubao,Cloud 9,OLFU - Antipolo,1.1
+R8 Robinsons Place Antipolo - Cubao,OLFU - Antipolo,CSB - Rizal,0.5
+R8 Robinsons Place Antipolo - Cubao,CSB - Rizal,Mambugay Brgy. Hall,1.1
+R8 Robinsons Place Antipolo - Cubao,Mambugay Brgy. Hall,XentroMall Antipolo,0.6
+R8 Robinsons Place Antipolo - Cubao,XentroMall Antipolo,Antipolo City Hospital System,1.0
+R8 Robinsons Place Antipolo - Cubao,Antipolo City Hospital System,LRT 2 - Antipolo Station,1.0
+R8 Robinsons Place Antipolo - Cubao,LRT 2 - Antipolo Station,Filinvest East Homes,0.6
+R8 Robinsons Place Antipolo - Cubao,Filinvest East Homes,LRT 2 - Marikina–Pasig Station,1.7
+R8 Robinsons Place Antipolo - Cubao,LRT 2 - Marikina–Pasig Station,Ayala Malls Feliz,0.7
+R8 Robinsons Place Antipolo - Cubao,Ayala Malls Feliz,Ligaya,0.2
+R8 Robinsons Place Antipolo - Cubao,Ligaya,LRT 2 - Santolan,0.7
+R8 Robinsons Place Antipolo - Cubao,LRT 2 - Santolan,Katipunan Avenue,1.9
+R8 Robinsons Place Antipolo - Cubao,Katipunan Avenue,LRT 2 - Katipunan North Entrance,0.3
+R8 Robinsons Place Antipolo - Cubao,LRT 2 - Katipunan North Entrance,LRT 2 - Anonas Station,1.0
+R8 Robinsons Place Antipolo - Cubao,LRT 2 - Anonas Station,15th Avenue,0.8
+R8 Robinsons Place Antipolo - Cubao,15th Avenue,P. Tuazon,0.6
+R8 Robinsons Place Antipolo - Cubao,P. Tuazon,Cubao,0.2
