@@ -27,3 +27,9 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-14,Reiniel Dan Pablo,0.1,Tagged and pushed commit as v01,none,none
 2026-11-14,Reiniel Dan Pablo,0.2,Merged all dev_* branches into main (dev_JP dev_KAROL dev_ROSE dev_kayleen dev_mondi),none,none
 2026-11-14,Reiniel Dan Pablo,0.1,Started WIP on v02,none,none
+2026-11-17,Reiniel Dan Pablo,0.1,Merged dev_mondi into main (routes.csv stops.csv io.py updates),none,none
+2026-11-17,Reiniel Dan Pablo,0.5,Hardened read_csv and write_csv for missing files and mismatched headers,"read_csv, write_csv",none
+2026-11-17,Reiniel Dan Pablo,0.3,Added read_routes and read_stops helpers backed by a project-root-relative DATA_DIR,"read_routes, read_stops",none
+2026-11-17,Reiniel Dan Pablo,0.2,Switched io.py and constants.py from os.path to pathlib,"read_csv, write_csv, read_routes, read_stops",none
+2026-11-17,Reiniel Dan Pablo,0.2,Made write_csv return the combined old and new rows after a successful append,write_csv,none
+2026-11-17,Reiniel Dan Pablo,0.1,Added read_members_info helper for data/members.csv,read_members_info,none

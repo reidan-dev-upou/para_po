@@ -3,6 +3,12 @@ Fixed values shared across the program. Make sure to name variables
 here as all uppercase. Example: VARIABLE_NAME
 """
 
+from pathlib import Path
+
+# Project root, so files like data/ can be found no matter where the program is run from.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATA_DIR = PROJECT_ROOT / "data"
+
 # Team Information Constants
 GROUP_NAME = "Team HEX"
 
