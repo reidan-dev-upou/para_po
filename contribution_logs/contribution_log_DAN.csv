@@ -33,3 +33,6 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-17,Reiniel Dan Pablo,0.2,Switched io.py and constants.py from os.path to pathlib,"read_csv, write_csv, read_routes, read_stops",none
 2026-11-17,Reiniel Dan Pablo,0.2,Made write_csv return the combined old and new rows after a successful append,write_csv,none
 2026-11-17,Reiniel Dan Pablo,0.1,Added read_members_info helper for data/members.csv,read_members_info,none
+2026-11-17,Reiniel Dan Pablo,1.0,Wrote pseudocode for find_all_paths and build_graph (Option A's required recursive function),"find_all_paths, build_graph",none
+2026-11-17,Reiniel Dan Pablo,1.5,Added find_all_paths recursive function for Option A's path-finding requirement,find_all_paths,none
+2026-11-17,Reiniel Dan Pablo,1.0,Added build_graph to convert read_routes() rows into the adjacency dict find_all_paths needs,build_graph,none
