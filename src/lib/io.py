@@ -51,7 +51,7 @@ def read_csv(file_path):
     """
     Read csv files
     """
-    #If the file doesn't exist, just report it and do nothing.
+    # If the file doesn't exist, just report it and do nothing.
     if not Path(file_path).exists():
         print(f"File not found: {file_path}. Returning an empty list.")
         return []
@@ -66,14 +66,18 @@ def read_csv(file_path):
     
 
 # Author: Andrian Mondares, Reiniel Dan Pablo
+# TODO: Recheck this function if we need to just update the data instead of just only `appending`
+# TODO: Might be useful for just updating/deleting data as well.
 def write_csv(file_path, data):
     """
     Writing additional rows of data to CSV files
     """
-    #If the file already exists, make sure its header matches the new data's keys before appending.
+    # If the file already exists, make sure its header matches the new data's keys before appending.
+    file_exists = Path(file_path).exists()
     existing_rows = []
-    if Path(file_path).exists():
+    if file_exists:
         existing_rows = read_csv(file_path)
+        # No existing rows means no header to compare, so skip the check.
         existing_header = list(existing_rows[0].keys()) if existing_rows else None
 
         if existing_header is not None and list(data.keys()) != existing_header:
@@ -82,7 +86,9 @@ def write_csv(file_path, data):
 
     # Using the 'a' mode to append data to the csv file. To preserve existing records and headers
     with open(file_path, 'a', newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
+        writer = csv.DictWriter(file, fieldnames=list(data.keys()))
+        if not file_exists:
+            writer.writeheader()
         writer.writerow(data)
 
     print(f"Successfully added new row/s to {file_path}")
