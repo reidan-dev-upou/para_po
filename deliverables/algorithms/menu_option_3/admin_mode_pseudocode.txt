@@ -1,24 +1,24 @@
 DEFINE function admin_mode_password_checker with admin_mode_user_attempt as its parameter
       IF admin_mode_user_attempt equal to "Hex" THEN
-           RETURN True
+           RETURN TRUE
       ELSE
-           RETURN False
+           RETURN FALSE
       END IF
 END FUNCTION
 
 DEFINE function admin_mode_choices with no parameters
-      WHILE True
+      WHILE TRUE
             DISPLAY "[1] Add a stop  [2] Remove a stop  [3] Add a segment  [4] Remove a segment  [5] Back"
             DISPLAY "Choice: "
             ASSIGN response to variable choice with spaces removed using strip
             IF choice equal to "1" THEN
-                  CALL add a stop function (function to be decided)
+                  CALL add_a_stop function 
             ELSE IF choice equal to "2" THEN
-                  call remove a stop function (function to be decided)
+                  CALL remove a stop function (function to be decided)
             ELSE IF choice equal to "3" THEN
-                  call add a segment function (to be decided)
+                  CALL add a segment function (to be decided)
             ELSE IF choice equal to "4" THEN
-                  call remove a segment function
+                  CALL remove a segment function
             ELSE IF choice equal to "5" THEN
                   RETURN
             ELSE
@@ -29,24 +29,24 @@ END FUNCTION
 
 START
 DECLARE admin_mode_user_attempt, checker_result
-SET checker_result to False
+SET checker_result to FALSE
 Choose [3] Admin Mode
-WHILE True
+WHILE TRUE
+      DISPLAY "Enter 0 to exit"
       DISPLAY "Please enter password: "
-      DISPLAY "Enter 5 to exit"
       ASSIGN response to variable admin_mode_user_attempt with spaces removed using strip
-      IF admin_mode_user_attempt equal to "5" THEN
+      IF admin_mode_user_attempt equal to "0" THEN
            break
       END IF
       CALL admin_mode_password_checker function with admin_mode_user_attempt as its argument
       ASSIGN returned value of admin_mode_password_checker function to checker_result
-      IF checker_result equal to True THEN
+      IF checker_result equal to TRUE THEN
            break
       ELSE
            DISPLAY "Incorrect password. Please try again"
       END IF
 END WHILE
-IF checker_result equal to True THEN
+IF checker_result equal to TRUE THEN
      CALL admin_mode_choices function
 ELSE
      return to main menu
