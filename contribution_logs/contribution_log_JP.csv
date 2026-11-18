@@ -1,3 +1,4 @@
 date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-11,Jose Paolo Aguiluz,3.0,Wrote password checker pseudocode for admin mode,none yet,The password prompt was outside the loop so a wrong password would repeat the 'incorrect' message forever (Fix: Moved it inside the loop). checker_result had no value if the user typed '5' first. (fix: set checker_result to False at the start).
 2026-11-12,Jose Paolo Aguiluz,0.75,Added admin menu function to pseudocode,none yet,removed parameter from admin menu function because it didnt needed one.
+2026-11-18,Jose Paolo Aguiluz,3.0,coded the functions and revised pseudocode for admin menu,admin_mode_password_checker() | admin_mode_choices() | show_menu_3(),applied strip only to if - applied to all conditional statements in admin_mode_choices | ask for input first before showing how to exit in show_menu - switched their places.
