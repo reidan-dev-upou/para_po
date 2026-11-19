@@ -33,8 +33,8 @@ DEFINE function add_a_stop with no parameters
 CALL read_stops function and save to a variable csv_stops
 CALL read_routes function and save to a variable csv_routes
 WHILE TRUE
-      DISPLAY "Please enter stop name: "
       DISPLAY "Enter 0 to exit"
+      DISPLAY "Please enter stop name: "
       ASSIGN response to new_stop variable
       APPLY strip and lower method to new_stop variable
       IF new_stop equal to "0" THEN
@@ -63,8 +63,8 @@ WHILE TRUE
             END IF
       END FOR
       DISPLAY unique_route in this format "[route number] Origin - Destination"
-      DISPLAY "Please enter a route"
       DISPLAY "Enter 0 to exit"
+      DISPLAY "Please enter a route (e.g. R1): "
       ASSIGN response to variable new_route
       APPLY strip and upper method to new_route variable
       IF new_route equal to "0" THEN
