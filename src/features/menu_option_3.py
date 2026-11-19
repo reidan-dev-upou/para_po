@@ -179,7 +179,16 @@ def add_a_stop():
         else:
             break
 
-
+    while True:
+        print("")
+        save_stop = input("Save this stop? (Y/N): ").strip().lower()
+        if save_stop == "y":
+            break
+        elif save_stop == "n":
+            return
+        else:
+            print("")
+            print("Invalid input. Please enter Y or N only")
 
     
 
