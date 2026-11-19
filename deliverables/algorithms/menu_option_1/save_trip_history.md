@@ -1,4 +1,5 @@
 ###Save Trip History 
+
 Receive the following required information from Menu 1: Date, Origin, Destination, Chosen Path, and Fare.
 
 Check if any required information is missing. If incomplete, do not save the trip and return an error message, "Required information not provided".
