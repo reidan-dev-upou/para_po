@@ -20,9 +20,9 @@ def admin_mode_choices():
     """This function shows the admin mode menu where all the choices are seen. 
     The function does not have a parameter and does not return a value"""
     while True:
-        print(" ")
+        print("")
         print("--- ADMIN MODE ---")
-        print(" ")
+        print("")
         print("[1] Add a stop  [2] Remove a stop  [3] Add a segment  [4] Remove a segment  [5] Back")
         choice = input("Choice: ")
         if choice.strip() == "1":
@@ -45,7 +45,7 @@ def show_menu_3():
    If the password is correct, it calls admin_mode_choices function. If user enters 0, returns to the main menu"""
    checker_result = False
    while True:
-       print(" ")
+       print("")
        print("Enter 0 to exit")
        admin_mode_user_attempt = input("Please enter password: ").strip()
        if admin_mode_user_attempt == "0":
@@ -65,12 +65,12 @@ def show_menu_3():
 def add_a_stop():
     """This function lets the user add a new stop to stops.csv and routes.csv using write_csv. 
     It takes no parameters and does not return an output."""
-    print(" ")
+    print("")
     print("--------------------------->")
     csv_stops = read_stops()
     csv_routes = read_routes()
     print("--------------------------->")
-    print(" ")
+    print("")
 
     while True:
         print("Enter 0 to exit")
@@ -85,20 +85,20 @@ def add_a_stop():
                 duplicate_checker = True
 
         if duplicate_checker == True:
-            print(" ")
+            print("")
             print(f"{new_stop.title()} already exists. Please try again or enter 0 to exit")
-            print(" ")
+            print("")
         elif new_stop == "":
-            print(" ")
+            print("")
             print("Stop names must contain letters and/or numbers. Please try again or enter 0 to exit")
-            print(" ")
+            print("")
         else:
             break
         
     new_stop = new_stop.title()
 
     while True:
-        print(" ")
+        print("")
         unique_route = []
         for row in csv_routes:
             if row["route_name"] not in unique_route:
@@ -107,9 +107,10 @@ def add_a_stop():
             splitted_items = items.split(" ", 1)
             print(f"[{splitted_items[0]}] {splitted_items[1]}")
 
-        print(" ")
+        print("")
         print("Enter 0 to exit")
         new_route = input("Please enter a route (e.g. R1): ").strip().upper()
+        print("")
         if new_route == "0":
             return
         route_checker = False
@@ -121,10 +122,40 @@ def add_a_stop():
         if route_checker == True:
             break
         else:
-            print(" ")
+            print("")
             print(f"{new_route} is not a route. Please choose from the list or enter 0 to exit")
+
+    while True:
+        chosen_route = []
+        for row in csv_routes:
+            if row["route_name"].split(" ", 1)[0] == new_route:
+                if row["stop_a"] not in chosen_route:
+                    chosen_route.append(row["stop_a"])
+                if row["stop_a"] not in chosen_route:
+                    chosen_route.append(row["stop_b"])
+
+        counter = 1
+        for places in chosen_route:
+            print(f"[{counter}] {places}")
+            counter += 1
+
+        print("")
+        connection_choice = input(f"Where does {new_stop} connect? Enter a number from the list or enter 0 to exit: ").strip()
+        if connection_choice == "0":
+            return
+        if not connection_choice.isdigit():
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        elif int(connection_choice) > len(chosen_route) or int(connection_choice) < 1:
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        else:
+            break
         
-        
+
+    
 
         
 
