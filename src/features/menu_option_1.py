@@ -9,7 +9,7 @@ def show_menu_1():
     # Pause so this doesn't go straight back to the main menu.
     input("Press any button to continue...")
 
-
+# Author: Karol Anne Panaligan
 from src.lib.io import read_csv, write_csv
 from src.lib.constants import DATA_DIR
 file_path = DATA_DIR / "trip_history.csv"
@@ -31,6 +31,6 @@ def save_trip_history(date, origin, destination, chosen_path, fare):
 
     result = write_csv(file_path, trip)
     if result is not None:
-        print("Saved successfully!")
+        print("Trip saved successfully!")
     else:
-        print("Saving failed!")
+        print("Unable to save trip details.")
