@@ -154,6 +154,32 @@ def add_a_stop():
         else:
             break
         
+    while True:
+        total_distance = 0
+        for row in csv_routes:
+            if row["route_name"].split(" ", 1)[0] == new_route:
+                total_distance += float(row["distance_km"])
+        print("")
+        new_distance = input(f"How far is {new_stop} from {chosen_route[int(connection_choice) - 1]}? Enter 0.1 to {total_distance} km, or 0 to exit: ").strip()
+        if new_distance == "0":
+            return
+        if "nan" in new_distance.lower():
+            print("")
+            print(f"Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit")
+            continue
+        try:
+            floated_distance = float(new_distance)
+        except ValueError:
+            print("")
+            print(f"Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit")
+            continue
+        if floated_distance > total_distance or floated_distance < 0.1:
+            print("")
+            print(f"Distance must be between 0.1 and {total_distance} km. Please try again or enter 0 to exit")
+        else:
+            break
+
+
 
     
 
