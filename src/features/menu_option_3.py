@@ -1,10 +1,13 @@
 """
 Menu option 3: admin mode (add/remove stops and segments).
 """
+from src.lib.io import read_stops, read_routes, write_csv
+
+
 
 # Author: Jose Paolo Aguiluz
 def admin_mode_password_checker(admin_mode_user_attempt):
-    """ this function checks if the user can access admin mode by entering the correct password. 
+    """This function checks if the user can access admin mode by entering the correct password. 
     The function accepts one parameter named admin_mode_user_attempt and returns a boolean value """
     if admin_mode_user_attempt == "Hex":
         return True
@@ -14,13 +17,16 @@ def admin_mode_password_checker(admin_mode_user_attempt):
     
 # Author: Jose Paolo Aguiluz
 def admin_mode_choices():
-    """this function shows the admin mode menu where all the choices are seen. 
+    """This function shows the admin mode menu where all the choices are seen. 
     The function does not have a parameter and does not return a value"""
     while True:
+        print(" ")
+        print("--- ADMIN MODE ---")
+        print(" ")
         print("[1] Add a stop  [2] Remove a stop  [3] Add a segment  [4] Remove a segment  [5] Back")
         choice = input("Choice: ")
         if choice.strip() == "1":
-            print("add_a_stop function here")
+            add_a_stop()
         elif choice.strip() == "2":
             print("remove_a_stop function here")
         elif choice.strip() == "3":
@@ -35,10 +41,11 @@ def admin_mode_choices():
 
 # Author: Jose Paolo Aguiluz
 def show_menu_3():
-   """this function asks for the password again and again until it's right or when the user enters 0. 
+   """This function asks for the password again and again until it's right or when the user enters 0. 
    If the password is correct, it calls admin_mode_choices function. If user enters 0, returns to the main menu"""
    checker_result = False
    while True:
+       print(" ")
        print("Enter 0 to exit")
        admin_mode_user_attempt = input("Please enter password: ").strip()
        if admin_mode_user_attempt == "0":
@@ -52,3 +59,75 @@ def show_menu_3():
        admin_mode_choices()
    else:
        return
+
+
+# Author: Jose Paolo Aguiluz
+def add_a_stop():
+    """This function lets the user add a new stop to stops.csv and routes.csv using write_csv. 
+    It takes no parameters and does not return an output."""
+    print(" ")
+    print("--------------------------->")
+    csv_stops = read_stops()
+    csv_routes = read_routes()
+    print("--------------------------->")
+    print(" ")
+
+    while True:
+        print("Enter 0 to exit")
+        new_stop = input("Please enter stop name: ").strip().lower()
+        if new_stop == "0":
+            return 
+         
+        duplicate_checker = False
+        
+        for stop in csv_stops:
+            if stop["stop_name"].lower() == new_stop:
+                duplicate_checker = True
+
+        if duplicate_checker == True:
+            print(" ")
+            print(f"{new_stop.title()} already exists. Please try again or enter 0 to exit")
+            print(" ")
+        elif new_stop == "":
+            print(" ")
+            print("Stop names must contain letters and/or numbers. Please try again or enter 0 to exit")
+            print(" ")
+        else:
+            break
+        
+    new_stop = new_stop.title()
+
+    while True:
+        print(" ")
+        unique_route = []
+        for row in csv_routes:
+            if row["route_name"] not in unique_route:
+                unique_route.append(row["route_name"])
+        for items in unique_route:
+            splitted_items = items.split(" ", 1)
+            print(f"[{splitted_items[0]}] {splitted_items[1]}")
+
+        print(" ")
+        print("Enter 0 to exit")
+        new_route = input("Please enter a route (e.g. R1): ").strip().upper()
+        if new_route == "0":
+            return
+        route_checker = False
+        for route in unique_route:
+            if new_route == route.split(" ", 1)[0]:
+                route_checker = True
+                full_route_name = route
+                break
+        if route_checker == True:
+            break
+        else:
+            print(" ")
+            print(f"{new_route} is not a route. Please choose from the list or enter 0 to exit")
+        
+        
+
+        
+
+
+
+
