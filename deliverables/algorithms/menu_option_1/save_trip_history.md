@@ -12,4 +12,5 @@ Add the new trip to the existing records.
 
 Use `write_csv()` to save the updated records to `trip_history.csv`, creating the file if necessary.
 
-If saving is successful, display "Trip saved successfully!" Otherwise, display an error message.
+If saving is successful, display "Trip saved successfully!" 
+Otherwise, display an error message, "Unable to save trip details."
