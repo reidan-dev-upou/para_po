@@ -38,3 +38,5 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-20,Reiniel Dan Pablo,0.3,Made run_test catch exceptions and print FAIL ERROR instead of crashing the test file,run_test,"actual was evaluated before run_test was called, so a raising call crashed the whole test file; fixed by letting actual be a zero-arg function called inside run_test's try block"
 2026-11-20,Reiniel Dan Pablo,0.2,Trimmed long actual/expected values in FAIL messages to 50 chars,"run_test, _short_repr",none
 2026-11-20,Reiniel Dan Pablo,0.2,Added docstrings and author tags to assertions.py functions,"run_test, _short_repr",none
+2026-11-20,Reiniel Dan Pablo,0.2,Merged dev_ROSE dev_Haze dev_JP dev_KAROL dev_LOUIS into main,none,none
+2026-11-20,Reiniel Dan Pablo,0.4,Captured v01 run screenshots for each menu option into deliverables/v01/screenshots,none,"first capture included the shell login banner and prompt around the program output; cleared the terminal before launching and cropped the trailing shell prompt out"
