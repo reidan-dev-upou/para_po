@@ -62,6 +62,42 @@ def show_menu_3():
 
 
 # Author: Jose Paolo Aguiluz
+def choose_route():
+    """This function displays the routes and asks for input. 
+    It takes in no parameters and returns full_route_name or None as output"""
+    csv_routes = read_routes()
+    while True:
+        print("")
+        unique_route = []
+        for row in csv_routes:
+            if row["route_name"] not in unique_route:
+                unique_route.append(row["route_name"])
+        for items in unique_route:
+            splitted_items = items.split(" ", 1)
+            print(f"[{splitted_items[0]}] {splitted_items[1]}")
+    
+        print("")
+        print("Enter 0 to exit")
+        new_route = input("Please enter a route (e.g. R1): ").strip().upper()
+        print("")
+        if new_route == "0":
+            return None
+        route_checker = False
+        for route in unique_route:
+            if new_route == route.split(" ", 1)[0]:
+                route_checker = True
+                full_route_name = route
+                break
+        if route_checker == True:
+            break
+        else:
+            print("")
+            print(f"{new_route} is not a route. Please choose from the list or enter 0 to exit")
+    return full_route_name
+    
+
+
+# Author: Jose Paolo Aguiluz
 def add_a_stop():
     """This function lets the user add a new stop to stops.csv and routes.csv using write_csv. 
     It takes no parameters and does not return an output."""
@@ -97,41 +133,17 @@ def add_a_stop():
         
     new_stop = new_stop.title()
 
-    while True:
-        print("")
-        unique_route = []
-        for row in csv_routes:
-            if row["route_name"] not in unique_route:
-                unique_route.append(row["route_name"])
-        for items in unique_route:
-            splitted_items = items.split(" ", 1)
-            print(f"[{splitted_items[0]}] {splitted_items[1]}")
-
-        print("")
-        print("Enter 0 to exit")
-        new_route = input("Please enter a route (e.g. R1): ").strip().upper()
-        print("")
-        if new_route == "0":
-            return
-        route_checker = False
-        for route in unique_route:
-            if new_route == route.split(" ", 1)[0]:
-                route_checker = True
-                full_route_name = route
-                break
-        if route_checker == True:
-            break
-        else:
-            print("")
-            print(f"{new_route} is not a route. Please choose from the list or enter 0 to exit")
-
+    full_route_name = choose_route()
+    if full_route_name == None:
+        return
+    
     while True:
         chosen_route = []
         for row in csv_routes:
-            if row["route_name"].split(" ", 1)[0] == new_route:
+            if row["route_name"] == full_route_name:
                 if row["stop_a"] not in chosen_route:
                     chosen_route.append(row["stop_a"])
-                if row["stop_a"] not in chosen_route:
+                if row["stop_b"] not in chosen_route:
                     chosen_route.append(row["stop_b"])
 
         counter = 1
@@ -157,12 +169,12 @@ def add_a_stop():
     while True:
         total_distance = 0
         for row in csv_routes:
-            if row["route_name"].split(" ", 1)[0] == new_route:
+            if row["route_name"] == full_route_name:
                 total_distance += float(row["distance_km"])
         print("")
         new_distance = input(f"How far is {new_stop} from {chosen_route[int(connection_choice) - 1]}? Enter 0.1 to {total_distance} km, or 0 to exit: ").strip()
         if new_distance == "0":
-            return
+            return 
         if "nan" in new_distance.lower():
             print("")
             print(f"Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit")

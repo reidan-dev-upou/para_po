@@ -134,8 +134,10 @@ WHILE TRUE
       IF new_distance equal to "0" THEN
             RETURN to admin mode menu
       END IF
-      IF new_distance cannot be converted to a number THEN
-            DISPLAY "Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit"
+      IF new_distance with lower method applied has "nan" THEN
+           DISPLAY "Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit" 
+      ELSE IF new_distance cannot be converted to a number THEN
+           DISPLAY "Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit"
       ELSE
             convert new_distance to float
             IF new_distance is greater than total_distance or new_distance is less than 0.1 THEN
@@ -144,7 +146,7 @@ WHILE TRUE
                   break
             END IF
       END IF
-END WHILE
+END WHILE 
 WHILE TRUE
       DISPLAY "Save this stop? (Y/N): "
       ASSIGN response to variable save_stop
@@ -247,8 +249,10 @@ WHILE TRUE
       IF new_distance equal to "0" THEN
             RETURN to admin mode menu
       END IF
-      IF new_distance cannot be converted to a number THEN
-            DISPLAY "Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit"
+      IF new_distance with lower method applied has "nan" THEN
+           DISPLAY "Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit" 
+      ELSE IF new_distance cannot be converted to a number THEN
+           DISPLAY "Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit"
       ELSE
             convert new_distance to float
             IF new_distance is greater than or equal to total_distance or new_distance is less than 0.1 THEN
