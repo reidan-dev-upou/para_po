@@ -30,7 +30,7 @@ def admin_mode_choices():
         elif choice.strip() == "2":
             print("remove_a_stop function here")
         elif choice.strip() == "3":
-            print("add_a_segment function here")
+            add_a_segment()
         elif choice.strip() == "4":
             print("remove_a_segment function here")
         elif choice.strip() == "5":
@@ -204,6 +204,127 @@ def add_a_stop():
 
     
 
+# Author: Jose Paolo Aguiluz 
+def add_a_segment():
+    """This function lets the user add a new segment between two nonconnected stops and save it to routes.csv using write_csv. 
+    It takes no parameters and does not return an output."""
+    print("")
+    print("--------------------------->")
+    csv_routes = read_routes()
+    full_route_name = choose_route()
+    if full_route_name == None:
+        return
+
+    while True:
+        chosen_route = []
+        for row in csv_routes:
+            if row["route_name"] == full_route_name:
+                if row["stop_a"] not in chosen_route:
+                    chosen_route.append(row["stop_a"])
+                if row["stop_b"] not in chosen_route:
+                    chosen_route.append(row["stop_b"])
+
+        counter = 1
+        for places in chosen_route:
+            print(f"[{counter}] {places}")
+            counter += 1
+
+        print("")
+        print("Enter 0 to exit")
+        stop_1 = input("Choose stop A (enter a number): ").strip()
+        print("")
+        if stop_1 == "0":
+            return
+        if not stop_1.isdigit():
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        elif int(stop_1) > len(chosen_route) or int(stop_1) < 1:
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        else:
+            break
+                
+
+    while True:
+        counter = 1
+        for places in chosen_route:
+            print(f"[{counter}] {places}")
+            counter += 1
+        print("")
+        print(f"Stop A: {chosen_route[int(stop_1) -1]}")
+        print("Enter 0 to exit")
+        print("")
+        stop_2 = input("Choose stop B (enter a number): ").strip()
+        if stop_2 == "0":
+            return
+        if not stop_2.isdigit():
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        elif int(stop_2) == int(stop_1):
+            print("")
+            print(f"Stop B can't be the same as stop A {chosen_route[int(stop_1) - 1]}. Please choose another stop or enter 0 to exit")
+            print("")
+        elif int(stop_2) > len(chosen_route) or int(stop_2) < 1:
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        else:
+            does_exist = False
+            for items in csv_routes:
+                if (items["stop_a"] == chosen_route[int(stop_1) -1] and items["stop_b"] == chosen_route[int(stop_2) -1]) or (items["stop_a"] == chosen_route[int(stop_2) -1] and items["stop_b"] == chosen_route[int(stop_1) -1]):
+                    does_exist = True
+            if does_exist == True:
+                print("")
+                print(f"A segment between {chosen_route[int(stop_1) -1]} and {chosen_route[int(stop_2) -1]} already exists. Please choose another stop or enter 0 to exit")
+                print("")
+            else:
+                break
+
+    while True:
+        print("")
+        print(f"Stop A: {chosen_route[int(stop_1) -1]}")
+        print(f"Stop B: {chosen_route[int(stop_2) -1]}")
+        print("Enter 0 to exit")
+        total_distance = 0
+        for row in csv_routes:
+            if row["route_name"] == full_route_name:
+                total_distance += float(row["distance_km"])
+        
+        new_distance = input(f"Distance in km between {chosen_route[int(stop_1) -1]} and {chosen_route[int(stop_2) -1]} (0.1 to less than {total_distance} km): ").strip()
+        if new_distance == "0":
+            return 
+        if "nan" in new_distance.lower():
+            print("")
+            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit")
+            continue
+        try:
+            floated_distance = float(new_distance)
+        except ValueError:
+            print("")
+            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit")
+            continue
+        if floated_distance >= total_distance or floated_distance < 0.1:
+            print("")
+            print(f"Distance must be between 0.1 and less than {total_distance} km. Please try again or enter 0 to exit")
+        else:
+            break
+
+    while True:
+        print("")
+        save_segment = input("Save this segment? (Y/N): ").strip().lower()
+        if save_segment == "y":
+            break
+        elif save_segment == "n":
+            return
+        else:
+            print("")
+            print("Invalid input. Please enter Y or N only")
+    
+        
+        
         
 
 
