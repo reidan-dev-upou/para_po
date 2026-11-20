@@ -9,13 +9,19 @@ def show_menu_1():
     # Pause so this doesn't go straight back to the main menu.
     input("Press any button to continue...")
 
-# Author: Karol Anne Panaligan
-# TO DO: Merge this with menu 1 and test
 from src.lib.io import read_csv, write_csv
 from src.lib.constants import DATA_DIR
 file_path = DATA_DIR / "trip_history.csv"
 
+# Author: Karol Anne Panaligan
+# TO DO: Merge this with menu 1 and test
+
 def save_trip_history(date, origin, destination, chosen_path, fare):
+    """This function saves the trip history to a CSV file.
+    
+    Uses the following input details: date, origin, destination, chosen_path, fare
+    
+    Returns none."""
     if (not date or not origin or not destination or not chosen_path or not fare):
         print("Required information not provided")
         return
