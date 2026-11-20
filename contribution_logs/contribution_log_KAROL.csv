@@ -2,3 +2,4 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-11,Karol Anne Panaligan,1.50,Explored Github and created my branch,none yet,none
 2026-11-13,Karol Anne Panaligan,1.00,Created Save Trip History pseudocode in Menu Option 1,none yet,none
 2026-11-13,Karol Anne Panaligan,0.50,Created Popular Destinations pseudocode in Menu Option 4,none yet,none
+2026-11-19,Karol Anne Panaligan,5.00,Developed and tested initial Save Trip History function with CSV reading and writing which is yet to be integrated with the rest of Menu Option 1,save_trip_history,Encountered issues with variables function calls
