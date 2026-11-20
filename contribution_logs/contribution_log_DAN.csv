@@ -7,6 +7,7 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-08,Reiniel Dan Pablo,0.15,Renamed src/libs and src/ui to src/lib and src/user_interface,none yet,none
 2026-11-08,Reiniel Dan Pablo,0.6,Added function-writing guide to README: naming comments author tags,none yet,none
 2026-11-08,Reiniel Dan Pablo,0.45,Added constants io and utils helper files in src/lib,none yet,none
+2026-11-07,Reiniel Dan Pablo,0.6,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
 2026-11-08,Reiniel Dan Pablo,0.65,Added setup functions,"get_group_settings, get_group_seed, load_setup",none
 2026-11-08,Reiniel Dan Pablo,0.55,Added menu display functions,"show_setup_header, show_main_menu",none
 2026-11-08,Reiniel Dan Pablo,0.35,Wired up main.py entry point,main,"Import error from wrong package path, fixed by importing from src instead of para_po.src"
@@ -23,7 +24,6 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-08,Reiniel Dan Pablo,0.3,Reformatted module docstrings to multi-line style across the project,none,none
 2026-11-08,Reiniel Dan Pablo,0.35,Added run_test import to the prepared test files,none,"Edits kept reverting in src/features/tests; a stray duplicate folder from the editor was recreating it"
 2026-11-12,Reiniel Dan Pablo,0.1,Added folders for algorithms deliverables, none, none
-2026-11-12,Reiniel Dan Pablo,0.6,Wrote pseudocode for the main menu loop and setup header,"load_setup, update_setup_header, show_setup_header, read_menu_input, show_main_menu",none
 2026-11-14,Reiniel Dan Pablo,0.1,Tagged and pushed commit as v01,none,none
 2026-11-14,Reiniel Dan Pablo,0.2,Merged all dev_* branches into main (dev_JP dev_KAROL dev_ROSE dev_kayleen dev_mondi),none,none
 2026-11-14,Reiniel Dan Pablo,0.1,Started WIP on v02,none,none
@@ -34,3 +34,7 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-17,Reiniel Dan Pablo,0.2,Made write_csv return the combined old and new rows after a successful append,write_csv,none
 2026-11-17,Reiniel Dan Pablo,0.1,Added read_members_info helper for data/members.csv,read_members_info,none
 2026-11-18,Reiniel Dan Pablo,0.4,Fixed write_csv writing dict keys instead of the actual values and never writing a header on a new file,write_csv,"writer.writerow(data) on a dict wrote its keys, not its values; switched to csv.DictWriter"
+2026-11-19,Reiniel Dan Pablo,0.3,Wrote pseudocode for the assertions test framework,none,none
+2026-11-20,Reiniel Dan Pablo,0.3,Made run_test catch exceptions and print FAIL ERROR instead of crashing the test file,run_test,"actual was evaluated before run_test was called, so a raising call crashed the whole test file; fixed by letting actual be a zero-arg function called inside run_test's try block"
+2026-11-20,Reiniel Dan Pablo,0.2,Trimmed long actual/expected values in FAIL messages to 50 chars,"run_test, _short_repr",none
+2026-11-20,Reiniel Dan Pablo,0.2,Added docstrings and author tags to assertions.py functions,"run_test, _short_repr",none
