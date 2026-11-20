@@ -17,9 +17,9 @@ DEFINE function admin_mode_choices with no parameters
             ELSE IF choice equal to "2" THEN
                   CALL remove a stop function (function to be decided)
             ELSE IF choice equal to "3" THEN
-                  CALL add a segment function (to be decided)
+                  CALL add_a_segment function
             ELSE IF choice equal to "4" THEN
-                  CALL remove a segment function
+                  CALL remove a segment function (function to be decided)
             ELSE IF choice equal to "5" THEN
                   RETURN
             ELSE
@@ -157,7 +157,141 @@ END TRY
 END FUNCTION
 
 
-
+DEFINE function add_a_segment with no parameters
+CALL read_routes function and save to a variable csv_routes
+WHILE TRUE
+      SET unique_route equal to empty list
+      FOR each row in csv_routes
+            IF route_name of row is not in unique_route THEN
+                  ADD route_name of row to unique_route
+            END IF
+      END FOR
+      DISPLAY unique_route in this format "[route number] Origin - Destination"
+      DISPLAY "Enter 0 to exit"
+      DISPLAY "Please enter a route (e.g. R1): "
+      ASSIGN response to variable new_route
+      APPLY strip and upper method to new_route variable
+      IF new_route equal to "0" THEN
+            RETURN to admin mode menu
+      END IF
+      SET route_checker to FALSE
+      FOR each route in unique_route
+            IF new_route equal to route number of route in unique_route THEN
+                  SET route_checker to TRUE
+                  SET full_route_name to route
+                  break
+            END IF
+      END FOR
+      IF route_checker equal to TRUE THEN
+            break
+      ELSE
+            DISPLAY "{new_route} is not a route. Please choose from the list or enter 0 to exit"
+      END IF
+END WHILE
+WHILE TRUE
+      SET chosen_route to an empty list
+      FOR each row in csv_routes
+            IF route number in row of csv_routes matches new_route THEN
+                  IF stop_a of row not in chosen_route THEN
+                        ADD stop_a of row to chosen_route
+                  END IF
+                  IF stop_b of row not in chosen_route THEN
+                        ADD stop_b of row to chosen_route
+                  END IF
+            END IF
+      END FOR
+      DISPLAY chosen_route in this format "[number] stop name"
+      DISPLAY "Enter 0 to exit"
+      DISPLAY "Choose stop A (enter a number): "
+      ASSIGN response to stop_1
+      APPLY strip method to stop_1
+      IF stop_1 equal to "0" THEN
+            RETURN to admin mode menu
+      END IF
+      IF stop_1 not equal to whole number THEN
+            DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+      ELSE IF stop_1 is greater than length of chosen_route or stop_1 is less than 1 THEN
+            DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+      ELSE
+            break
+      END IF
+END WHILE
+DISPLAY "Stop A: {stop number stop_1 in chosen_route}"
+WHILE TRUE
+      DISPLAY chosen_route in this format "[number] stop name"
+      DISPLAY "Enter 0 to exit"
+      DISPLAY "Choose stop B (enter a number): "
+      ASSIGN response to variable stop_2
+      APPLY strip method to stop_2
+      IF stop_2 equal to "0" THEN
+            RETURN to admin mode menu
+      END IF
+      IF stop_2 not equal to whole number THEN
+            DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+      ELSE IF stop_2 equal to stop_1 THEN
+            DISPLAY "Stop B can't be the same as stop A {stop number stop_1 in chosen_route}. Please choose another stop or enter 0 to exit"
+      ELSE IF stop_2 is greater than length of chosen_route or stop_2 is less than 1 THEN
+            DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+      ELSE
+            SET variable does_exist to FALSE
+            FOR items in csv_routes
+                  IF stop_a of items equal to stop number stop_1 in chosen_route and stop_b of items equal to stop number stop_2 of chosen_route or stop_a of items equal to stop number stop_2 of chosen_route and stop_b of items equal to stop number stop_1 of chosen_route THEN
+                        SET does_exist to TRUE
+                  END IF
+            END FOR
+            IF does_exist equal to TRUE THEN
+                  DISPLAY "A segment between {stop number stop_1 of chosen_route} and {stop number stop_2 of chosen_route} already exists. Please choose another stop or enter 0 to exit"
+            ELSE
+                  break
+            END IF
+      END IF
+END WHILE
+WHILE TRUE
+      SET total_distance to 0
+      FOR each row in csv_routes
+            IF route number in row of csv_routes matches new_route THEN
+                  ADD distance_km of row converted to float to total_distance
+            END IF
+      END FOR
+      DISPLAY "Stop A: {stop number stop_1 of chosen_route}"
+      DISPLAY "Stop B: {stop number stop_2 of chosen_route}"
+      DISPLAY "Enter 0 to exit"
+      DISPLAY "Distance in km between {stop number stop_1 of chosen_route} and {stop number stop_2 of chosen_route} (0.1 to less than {total_distance} km): "
+      ASSIGN response to new_distance
+      APPLY strip method to new_distance
+      IF new_distance equal to "0" THEN
+            RETURN to admin mode menu
+      END IF
+      IF new_distance cannot be converted to a number THEN
+            DISPLAY "Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit"
+      ELSE
+            convert new_distance to float
+            IF new_distance is greater than or equal to total_distance or new_distance is less than 0.1 THEN
+                  DISPLAY "Distance must be between 0.1 and less than {total_distance} km. Please try again or enter 0 to exit"
+            ELSE
+                  break
+            END IF
+      END IF
+END WHILE
+WHILE TRUE
+      DISPLAY "Save this segment? (Y/N): "
+      ASSIGN response to variable save_segment
+      APPLY strip and lower method to save_segment
+      IF save_segment equal to "y" THEN
+            break
+      ELSE IF save_segment equal to "n" THEN
+            RETURN to admin mode menu
+      ELSE
+            DISPLAY "Invalid input. Please enter Y or N only"
+      END IF
+END WHILE
+TRY
+      SAVE full_route_name, stop number stop_1 of chosen_route, stop number stop_2 of chosen_route and new_distance to routes.csv using write_csv
+      DISPLAY "segment successfully added!"
+EXCEPT
+      DISPLAY "Saving failed. Please contact technical support."
+END TRY
+END FUNCTION
 
 
 
