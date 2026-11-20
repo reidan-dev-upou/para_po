@@ -29,6 +29,41 @@ DEFINE function admin_mode_choices with no parameters
 END FUNCTION
 
 
+DEFINE function choose_route with no parameters
+CALL read_routes() and save to variable csv_routes
+WHILE TRUE
+      SET unique_route equal to empty list
+      FOR each row in csv_routes
+            IF route_name of row is not in unique_route THEN
+                  ADD route_name of row to unique_route
+            END IF
+      END FOR
+      DISPLAY unique_route in this format "[route number] Origin - Destination"
+      DISPLAY "Enter 0 to exit"
+      DISPLAY "Please enter a route (e.g. R1): "
+      ASSIGN response to variable new_route
+      APPLY strip and upper method to new_route variable
+      IF new_route equal to "0" THEN
+            RETURN NONE
+      END IF
+      SET route_checker to FALSE
+      FOR each route in unique_route
+            IF new_route equal to route number of route in unique_route THEN
+                  SET route_checker to TRUE
+                  SET full_route_name to route
+                  break
+            END IF
+      END FOR
+      IF route_checker equal to TRUE THEN
+            break
+      ELSE
+            DISPLAY "{new_route} is not a route. Please choose from the list or enter 0 to exit"
+      END IF
+END WHILE
+RETURN full_route_name
+END FUNCTION
+
+
 DEFINE function add_a_stop with no parameters
 CALL read_stops function and save to a variable csv_stops
 CALL read_routes function and save to a variable csv_routes
@@ -55,39 +90,14 @@ WHILE TRUE
       END IF
 END WHILE
 APPLY title method to new_stop
-WHILE TRUE
-      SET unique_route equal to empty list
-      FOR each row in csv_routes
-            IF route_name of row is not in unique_route THEN
-                  ADD route_name of row to unique_route
-            END IF
-      END FOR
-      DISPLAY unique_route in this format "[route number] Origin - Destination"
-      DISPLAY "Enter 0 to exit"
-      DISPLAY "Please enter a route (e.g. R1): "
-      ASSIGN response to variable new_route
-      APPLY strip and upper method to new_route variable
-      IF new_route equal to "0" THEN
-            RETURN to admin mode menu
-      END IF
-      SET route_checker to FALSE
-      FOR each route in unique_route
-            IF new_route equal to route number of route in unique_route THEN
-                  SET route_checker to TRUE
-                  SET full_route_name to route
-                  break
-            END IF
-      END FOR
-      IF route_checker equal to TRUE THEN
-            break
-      ELSE
-            DISPLAY "{new_route} is not a route. Please choose from the list or enter 0 to exit"
-      END IF
-END WHILE
+CALL choose_route and save the result to full_route_name
+IF full_route_name equal to NONE THEN
+     RETURN to admin mode
+END IF
 WHILE TRUE
       SET chosen_route to an empty list
       FOR each row in csv_routes
-            IF route number in row of csv_routes matches new_route THEN
+            IF route_name of row equal to full_route_name THEN
                   IF stop_a of row not in chosen_route THEN
                         ADD stop_a of row to chosen_route
                   END IF
@@ -114,7 +124,7 @@ END WHILE
 WHILE TRUE
       SET total_distance to 0
       FOR each row in csv_routes
-            IF route number in row of csv_routes matches new_route THEN
+            IF route_name of row equal to full_route_name THEN
                   ADD distance_km of row converted to float to total_distance
             END IF
       END FOR
@@ -159,39 +169,14 @@ END FUNCTION
 
 DEFINE function add_a_segment with no parameters
 CALL read_routes function and save to a variable csv_routes
-WHILE TRUE
-      SET unique_route equal to empty list
-      FOR each row in csv_routes
-            IF route_name of row is not in unique_route THEN
-                  ADD route_name of row to unique_route
-            END IF
-      END FOR
-      DISPLAY unique_route in this format "[route number] Origin - Destination"
-      DISPLAY "Enter 0 to exit"
-      DISPLAY "Please enter a route (e.g. R1): "
-      ASSIGN response to variable new_route
-      APPLY strip and upper method to new_route variable
-      IF new_route equal to "0" THEN
-            RETURN to admin mode menu
-      END IF
-      SET route_checker to FALSE
-      FOR each route in unique_route
-            IF new_route equal to route number of route in unique_route THEN
-                  SET route_checker to TRUE
-                  SET full_route_name to route
-                  break
-            END IF
-      END FOR
-      IF route_checker equal to TRUE THEN
-            break
-      ELSE
-            DISPLAY "{new_route} is not a route. Please choose from the list or enter 0 to exit"
-      END IF
-END WHILE
+CALL choose_route and save the result to full_route_name
+IF full_route_name equal to NONE THEN
+     RETURN to admin mode
+END IF
 WHILE TRUE
       SET chosen_route to an empty list
       FOR each row in csv_routes
-            IF route number in row of csv_routes matches new_route THEN
+            IF route_name of row equal to full_route_name THEN
                   IF stop_a of row not in chosen_route THEN
                         ADD stop_a of row to chosen_route
                   END IF
@@ -249,7 +234,7 @@ END WHILE
 WHILE TRUE
       SET total_distance to 0
       FOR each row in csv_routes
-            IF route number in row of csv_routes matches new_route THEN
+            IF route_name of row equal to full_route_name THEN
                   ADD distance_km of row converted to float to total_distance
             END IF
       END FOR
