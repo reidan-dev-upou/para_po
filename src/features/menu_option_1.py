@@ -38,7 +38,6 @@ def save_trip_history(date, origin, destination, chosen_path, fare):
 
 
 # Author: Kayleen Rosette Lagunday
-from src.lib.constants import DATA_DIR
 from src.lib.io import read_csv
 file_path = DATA_DIR / "members.csv"
 
@@ -67,3 +66,4 @@ if __name__ == "__main__":
 def read_routes():
   return read_csv(DATA_DIR / "routes.csv")
 routes = read_routes()
+
