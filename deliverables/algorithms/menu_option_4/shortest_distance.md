@@ -1,42 +1,47 @@
-## shortest distance
+# Rank the results: shortest distance 
 
-# Search and collect possible jeepney routes or paths (starting point and destination).
-# Identify the distance in kilometers of connected stop and get the total distance of each path.
-# Arrange all valid paths according to total distance
-# Compare the total distance of each path to determine which route provides the shortest distance.
-# Display the results with ff information: (subject for review and changes)
-    + Rank of the route
-    + jeepney route or path (sequence of stops)
-    + total distance "km"
-    + estimated fare
-    + number of transfers
+1. START
 
+2. Input the starting point and destination
 
-START
+    starting_point = INPUT ("Enter starting_point") 
+    destination = INPUT ("Enter destination")
 
-Get all possible paths from starting point todestination.
+3. Get all possible paths from the starting point to the destination.
 
-INPUT starting_point
-INPUT destination
+    valid_paths = FIND all possible paths 
+                  from starting_point to destination
 
-IF no valid paths are found THEN 
-    DISPLAY "No available jeepney route found."
-ELSE
-    For each valid_path:
+4. Check if there are available routes or paths
 
-        SET total_distance = 0
+    IF valid_paths is empty THEN
+        DISPLAY "No available jeepney route found."
 
-        FOR each connection in the path:
-            ADD distance to total_distance 
+5. Initialize the total distance for each valid path and calculate the distance in kilometers of connected stops.
 
-Sort all paths from shortest to longest distance
+    ELSE 
+        FOR each valid_path in valid_paths:
+            total_distance = 0
 
-Display the top 3 shortest paths.
+            FOR each connection in valid_path:
+                ADD distance to total_distance
+
+6. Calculate the total distance in each path
+
+    STORE total_distance for each valid_path
+
+7. Arrange all valid paths according to their total distance from shortest to longest
+
+    SORT valid_paths by total_distance 
+            in ascending order
+
+8. Display the top 3 shortest paths.
 
     DISPLAY rank 
     DISPLAY jeepney_route_or_path 
     DISPLAY total_distance "km"
     DISPLAY estimated_fare
     DISPLAY number_of_transfers
-     
-END
+
+9. END
+
