@@ -20,11 +20,11 @@ def update_setup_header():
 
     setup_header_dict = {
         "GROUP_NAME": GROUP_NAME,
-        "MEMBER_NAMES": "AA, BB, CC",
-        "GROUP_SEED": "00000",
-        "BASE_FARE": "XXX",
-        "EXTRA_FARE": "YY",
-        "DISCOUNT_PERCENTAGE": "Z",
+        "MEMBER_NAMES": "Andrian Mondares, Dan Louis Faurillo, Hazel Quinee Marquez, Jose Paolo Aguiluz, Karol Anne Panaligan, Kayleen Rosette Lagunday, Mary Rose Ramos, Reiniel Dan Pablo",
+        "GROUP_SEED": "16497",
+        "BASE_FARE": "13.00",
+        "EXTRA_FARE": "1.75",
+        "DISCOUNT_PERCENTAGE": "15",
         "DATA_STOPS": "DD",
         "DATA_ROUTES": "EE",
     }
