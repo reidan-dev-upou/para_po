@@ -11,7 +11,6 @@ from src.features.menu_option_3 import show_menu_3
 from src.features.menu_option_4 import show_menu_4
 from src.features.menu_option_5 import show_menu_5
 
-
 def update_setup_header():
     """Fill in the setup header template with real values.
 

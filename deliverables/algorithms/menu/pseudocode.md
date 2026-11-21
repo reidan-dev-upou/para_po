@@ -1,3 +1,8 @@
+## Menu Pseudocode
+
+# Covers src/features/menu.py: builds the setup header, reads menu input, and runs the main menu loop.
+# Author: Dan Pablo
+
 START
     FUNC load_setup()
         LET output_dict = {
@@ -21,6 +26,7 @@ START
             "DATA_ROUTES": "EE",
         }
 
+        # Swap each {PLACEHOLDER} in the template for its real value
         FOR EACH (placeholder, actual_value) IN setup_header_dict DO
             setup_header = REPLACE placeholder WITH actual_value IN setup_header
         ENDFOR
