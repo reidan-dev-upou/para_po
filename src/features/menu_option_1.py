@@ -98,6 +98,11 @@ def main():
 
     total_distance = calculate_route_distance(routes,origin,destination)
 
+    if total_distance is None:
+        print("No route found. Please check your starting point and destination.")
+    elif total_distance == 0.0:
+        print("Starting point and destination cannot be the same.")
+
     return {
         "group_seed": group_seed,
         "base_fare": base_fare,
@@ -108,3 +113,5 @@ def main():
         "destination": destination,
         "total_distance": total_distance}
 
+if __name__ == "__main__":
+    main()
