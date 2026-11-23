@@ -4,3 +4,6 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-17,Andrian Mondares, 1.5, Added csv file stops.csv to data folder, none yet, none
 2026-11-17,Andrian Mondares, 0.2, Added def read_csv function, def read_csv, have not yet tested
 2026-11-17,Andrian Mondares, 0.8, Added def write_csv function, def write_csv, have not yet tested
+2026-11-23,Andrian Mondares, 1.0, Added Pseudocoode for menu_option_2.py, none yet, none
+2026-11-24,Andrian Mondares, 1.5, Added def get_stop_names, get_stop_names, none
+2026-11-24,Andrian Mondares, 1.5, Added def show_menu_2 function, def show_menu_2, none
