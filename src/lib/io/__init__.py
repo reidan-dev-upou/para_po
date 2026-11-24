@@ -64,9 +64,19 @@ def append_csv(file_path, data):
     Append a single row dict to a CSV file, writing a header first if the file
     doesn't exist yet. Does not read or rewrite the file's existing rows.
     """
-    file_exists = Path(file_path).exists()
+    path = Path(file_path)
+    file_exists = path.exists()
 
     with open(file_path, 'a', newline="", encoding="utf-8") as file:
+        # A file that already has content but doesn't end with a newline
+        # (e.g. one created by hand) would otherwise run the new row onto
+        # the existing last line.
+        if file_exists and path.stat().st_size > 0:
+            with open(file_path, 'rb') as existing_file:
+                existing_file.seek(-1, 2)
+                if existing_file.read(1) != b"\n":
+                    file.write("\n")
+
         writer = csv.DictWriter(file, fieldnames=list(data.keys()))
         if not file_exists:
             writer.writeheader()

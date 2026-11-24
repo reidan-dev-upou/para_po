@@ -2,6 +2,8 @@
 Reading and saving data/trip_history.csv.
 """
 
+from datetime import datetime
+
 from src.lib.constants import DATA_DIR
 from src.lib.io import read_csv, append_csv
 
@@ -12,19 +14,21 @@ def read_trip_history():
     """
     return read_csv(DATA_DIR / "trip_history.csv")
 
-# Author: Karol Anne Panaligan
-def add_trip_history(date, origin, destination, chosen_path, fare):
+# Author: Karol Anne Panaligan, Reiniel Dan PAblo
+def add_trip_history(origin, destination, chosen_path, fare):
     """This function appends a trip to data/trip_history.csv without rewriting existing rows.
 
-    Uses the following input details: date, origin, destination, chosen_path, fare
+    date is generated at call time (for example "2026-11-24 23:22:21").
+
+    Uses the following input details: origin, destination, chosen_path, fare
 
     Returns none."""
-    if not date or not origin or not destination or not chosen_path or not fare:
+    if not origin or not destination or not chosen_path or not fare:
         print("Required information not provided")
         return
 
     append_csv(DATA_DIR / "trip_history.csv", {
-        "date": date,
+        "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "origin": origin,
         "destination": destination,
         "chosen_path": chosen_path,
