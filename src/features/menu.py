@@ -3,30 +3,37 @@ The main menu: the setup header, the menu loop, and the handlers
 for each menu option.
 """
 
+from src.lib.setup import get_group_seed, get_group_settings
 from src.lib.constants import GROUP_NAME, MENU_SETUP_HEADER, MENU_OPTIONS
 from src.lib.io import read_menu_input
+from src.lib.io.members import read_members_info
+from src.lib.io.routes import read_routes
+from src.lib.io.stops import read_stops
 from src.features.menu_option_1 import show_menu_1
 from src.features.menu_option_2 import show_menu_2
 from src.features.menu_option_3 import show_menu_3
 from src.features.menu_option_4 import show_menu_4
 from src.features.menu_option_5 import show_menu_5
 
+# Author: Reiniel Dan Pablo, Kayleen Rosette Lagunday
 def update_setup_header():
     """Fill in the setup header template with real values.
 
     Returns the setup header text, ready to print.
     """
     setup_header = MENU_SETUP_HEADER
+    members_info = [info["member_name"] for info in read_members_info()]
+    base_fare, base_distance, fare_per_extra_km, discount_rate = get_group_settings()
 
     setup_header_dict = {
         "GROUP_NAME": GROUP_NAME,
-        "MEMBER_NAMES": "Andrian Mondares, Dan Louis Faurillo, Hazel Quinee Marquez, Jose Paolo Aguiluz, Karol Anne Panaligan, Kayleen Rosette Lagunday, Mary Rose Ramos, Reiniel Dan Pablo",
-        "GROUP_SEED": "16497",
-        "BASE_FARE": "13.00",
-        "EXTRA_FARE": "1.75",
-        "DISCOUNT_PERCENTAGE": "15",
-        "DATA_STOPS": "DD",
-        "DATA_ROUTES": "EE",
+        "MEMBER_NAMES": ", ".join(sorted(members_info)),
+        "GROUP_SEED": get_group_seed(),
+        "BASE_FARE": base_fare,
+        "EXTRA_FARE": fare_per_extra_km,
+        "DISCOUNT_PERCENTAGE": discount_rate,
+        "DATA_STOPS": len(read_stops()),
+        "DATA_ROUTES": len(read_routes()),
     }
 
     for placeholder, actual_value in setup_header_dict.items():

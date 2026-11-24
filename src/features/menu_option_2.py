@@ -2,7 +2,7 @@
 Menu option 2: view all stops.
 """
 
-from src.lib.io import read_stops
+from src.lib.io.stops import read_stops
 
 def get_stop_names(stop_rows):
     """Turn the rows of stops.csv into a clean, sorted list of stop names.

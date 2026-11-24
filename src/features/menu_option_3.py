@@ -1,7 +1,8 @@
 """
 Menu option 3: admin mode (add/remove stops and segments).
 """
-from src.lib.io import read_stops, read_routes, write_csv
+from src.lib.io.stops import read_stops
+from src.lib.io.routes import read_routes
 
 
 

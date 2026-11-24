@@ -40,3 +40,10 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-20,Reiniel Dan Pablo,0.2,Added docstrings and author tags to assertions.py functions,"run_test, _short_repr",none
 2026-11-20,Reiniel Dan Pablo,0.2,Merged dev_ROSE dev_Haze dev_JP dev_KAROL dev_LOUIS into main,none,none
 2026-11-20,Reiniel Dan Pablo,0.4,Captured v01 run screenshots for each menu option into deliverables/v01/screenshots,none,"first capture included the shell login banner and prompt around the program output; cleared the terminal before launching and cropped the trailing shell prompt out"
+2026-11-25,Reiniel Dan Pablo,0.4,Added add_route and remove_route functions for routes.csv,"add_route, remove_route",none
+2026-11-25,Reiniel Dan Pablo,0.5,Split io.py into src/lib/io/ package and added trip_history.py,"read_trip_history, save_trip_history",write_csv import was broken in menu_option_1 and menu_option_3; fixed while moving save_trip_history into trip_history.py
+2026-11-25,Reiniel Dan Pablo,0.3,Added append_csv and switched add_route/trip history saving to append instead of rewriting the whole file,"append_csv, add_route, add_trip_history",none
+2026-11-25,Reiniel Dan Pablo,0.2,Removed save_trip_history and merged its validation into add_trip_history,add_trip_history,none
+2026-11-25,Reiniel Dan Pablo,0.1,Updated README io/ package section for append_csv,none,none
+2026-11-25,Reiniel Dan Pablo,0.1,Removed load_setup for good along with its call in main.py,load_setup,none
+2026-11-25,Reiniel Dan Pablo,0.6,Captured v02 run screenshots (admin mode login add/remove stop add/remove segment) into deliverables/v02/screenshots,none,"menu options 1 2 and 4 still show the same WIP stub as v01, so left those out and only re-shot the admin mode flow that actually changed in v02"

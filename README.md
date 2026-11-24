@@ -14,7 +14,12 @@ para_po/
 │   └── lib/
 │       ├── constants.py fixed values: file paths, group settings
 │       ├── setup.py     one-time startup helpers
-│       ├── io.py        reading and writing data files
+│       ├── io/           reading and writing data files
+│       │   ├── __init__.py    shared read_csv/overwrite_csv/append_csv, read_menu_input
+│       │   ├── routes.py      data/routes.csv
+│       │   ├── stops.py       data/stops.csv
+│       │   ├── members.py     data/members.csv
+│       │   └── trip_history.py data/trip_history.csv
 │       ├── utils.py     small shared helpers (input validation, formatting)
 │       └── assertions.py run_test(), the test helper, see Tests below
 ├── tests/               one test_<name>.py per file it tests, same folder shape as src/
@@ -35,8 +40,10 @@ para_po/
 - Put it in the right file: a menu option (logic and screen text together)
   goes in its own `src/features/menu_option_N.py`, the menu loop itself in
   `src/features/menu.py`, a fixed value in `src/lib/constants.py`, file
-  reading/writing in `src/lib/io.py`, and a small shared helper in
-  `src/lib/utils.py`.
+  reading/writing for a specific data file in its matching
+  `src/lib/io/<data_file>.py` (for example, `routes.csv` reading/writing goes
+  in `src/lib/io/routes.py`), a generic CSV helper in `src/lib/io/__init__.py`,
+  and a small shared helper in `src/lib/utils.py`.
 - Name it in `snake_case`, as `<ACTION>_<WHAT IT ACTS ON>`, for example
   `get_value_a` or `write_output`. Not `doStuff` or `function1`.
 - Give it a docstring explaining what it does, its parameters, and what
