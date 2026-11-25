@@ -5,3 +5,5 @@ date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-19,Karol Anne Panaligan,5.00,Developed and tested initial Save Trip History function with CSV reading and writing which is yet to be integrated with the rest of Menu Option 1,save_trip_history,Encountered issues with variables function calls
 2026-11-20,Karol Anne Panaligan,0.10,Added docstring for Save Trip History function,save_trip_history,none
 2026-11-20,Karol Anne Panaligan,2.00,Developed initial Popular Destinations function with csv reading and printing,get_most_searched_destinations,Had difficulty with function calls
+2026-11-25,Karol Anne Panaligan,3.00,Completed Popular Destinations counting sorting and ranking,get_most_searched_destinations,Encountered syntax and indentation errors
+2026-11-26,Karol Anne Panaligan,0.40,Integrated Popular Destinations with Menu 4 and tested different scenarios,get_most_searched_destinations; show_menu_4,Encountered issues with terminal output during testing
