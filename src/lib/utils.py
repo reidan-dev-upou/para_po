@@ -74,6 +74,7 @@ def check_travel_cache(start, end):
     return paths
 
 # Author: Reiniel Dan Pablo
+# TODO: Karol and Kayleen add as authors
 def search_recursively(graph, start, end, visited=None):
     """Find every way to get from start to end without passing the same stop twice.
 
@@ -99,6 +100,7 @@ def search_recursively(graph, start, end, visited=None):
     return paths
 
 # Author: Reiniel Dan Pablo
+# TODO: Karol and Kayleen add as authors
 def find_all_paths(start, end):
     """Find every way to get from start to end, reusing a cached trip if there is one.
 
