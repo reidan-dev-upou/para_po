@@ -2,6 +2,7 @@
 Reading and saving data/trip_history.csv.
 """
 
+import csv
 from datetime import datetime
 
 from src.lib.constants import DATA_DIR
@@ -10,9 +11,14 @@ from src.lib.io import read_csv, append_csv
 # Author: Karol Anne Panaligan
 def read_trip_history():
     """
-    Read data/trip_history.csv
+    Read data/trip_history.csv, creating it with just a header if it doesn't exist yet.
     """
-    return read_csv(DATA_DIR / "trip_history.csv")
+    file_path = DATA_DIR / "trip_history.csv"
+    if not file_path.exists():
+        with open(file_path, 'w', newline="", encoding="utf-8") as file:
+            csv.writer(file).writerow(["date", "origin", "destination", "chosen_path", "fare"])
+
+    return read_csv(file_path)
 
 # Author: Karol Anne Panaligan, Reiniel Dan PAblo
 def add_trip_history(origin, destination, chosen_path, fare):
