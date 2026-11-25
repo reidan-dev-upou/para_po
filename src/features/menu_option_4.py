@@ -4,7 +4,7 @@ Menu option 4: most searched destinations.
 
 
 def show_menu_4():
-    print("WIP: Menu 4")
+    get_most_searched_destinations()
 
     # Pause so this doesn't go straight back to the main menu.
     input("Press any button to continue...")
@@ -14,15 +14,12 @@ def show_menu_4():
 from src.lib.io.trip_history import read_trip_history
 
 # Author: Karol Anne Panaligan
-#TO DO: Integrate with the rest of Menu 4.
 def get_most_searched_destinations():
     """This function retrieves trip history and displays the top 5 most searched destinations
 
     Returns None. Prints most searched destinations with ranks names and counts."""
 
     trip_history = read_trip_history()
-    print(trip_history)
-
     if not trip_history:
         print("No trip history available")
         return
