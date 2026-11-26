@@ -29,3 +29,10 @@ run_test(
     expected=False,
     test_name="admin_mode_password_checker rejects lowercase hex",
 )
+
+run_test(
+    actual=admin_mode_password_checker("!@#$%%"),
+    expected=[True, False],
+    test_name="password checker returns a boolean value",
+    comparison="in",
+)                              
