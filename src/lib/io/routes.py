@@ -20,7 +20,7 @@ def overwrite_routes(new_routes_data):
     overwrite_csv(DATA_DIR / "routes.csv", new_routes_data)
 
 # Author: Reiniel Dan Pablo
-# TODO: Add author - JP
+# Author: Jose Paolo Aguiluz
 def add_route(new_route):
     """
     Add a new segment row (route_name, stop_a, stop_b, distance_km) to routes.csv.
@@ -54,7 +54,7 @@ def add_route(new_route):
     append_csv(DATA_DIR / "routes.csv", new_route)
 
 # Author: Reiniel Dan Pablo
-# TODO: Add author - JP
+# Author: Jose Paolo Aguiluz
 def remove_route(route_to_remove):
     """
     Remove the segment row matching route_to_remove (route_name, stop_a, stop_b)

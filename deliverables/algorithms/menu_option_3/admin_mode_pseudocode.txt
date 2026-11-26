@@ -160,8 +160,9 @@ WHILE TRUE
       END IF
 END WHILE
 TRY
-      SAVE new_stop to stops.csv using write_csv
-      SAVE full_route_name, the chosen stop from chosen_route, new_stop and new_distance to routes.csv using write_csv
+      SET new_segment to a row with route_name = full_route_name, stop_a = stop number connection_choice in chosen_route, stop_b = new_stop, and distance_km = new_distance
+      CALL add_route with new_segment as its argument
+      SAVE new_stop to stops.csv using append_csv
       DISPLAY "stop successfully added!"
 EXCEPT
       DISPLAY "Saving failed. Please contact technical support."
@@ -275,7 +276,8 @@ WHILE TRUE
       END IF
 END WHILE
 TRY
-      SAVE full_route_name, stop number stop_1 of chosen_route, stop number stop_2 of chosen_route and new_distance to routes.csv using write_csv
+      SET new_segment to a row with route_name = full_route_name, stop_a = stop number stop_1 of chosen_route, stop_b = stop number stop_2 of chosen_route, and distance_km = new_distance
+      CALL add_route with new_segment as its argument
       DISPLAY "segment successfully added!"
 EXCEPT
       DISPLAY "Saving failed. Please contact technical support."

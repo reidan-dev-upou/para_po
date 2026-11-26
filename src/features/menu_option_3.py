@@ -3,7 +3,9 @@ Menu option 3: admin mode (add/remove stops and segments).
 """
 from src.lib.io.stops import read_stops
 from src.lib.io.routes import read_routes
-
+from src.lib.constants import DATA_DIR
+from src.lib.io import append_csv
+from src.lib.io.routes import add_route
 
 
 # Author: Jose Paolo Aguiluz
@@ -100,14 +102,12 @@ def choose_route():
 
 # Author: Jose Paolo Aguiluz
 def add_a_stop():
-    """This function lets the user add a new stop to stops.csv and routes.csv using write_csv. 
+    """This function lets the user add a new stop to stops.csv and routes.csv using add_route function. 
     It takes no parameters and does not return an output."""
-    print("")
-    print("--------------------------->")
+    
     csv_stops = read_stops()
     csv_routes = read_routes()
-    print("--------------------------->")
-    print("")
+    
 
     while True:
         print("Enter 0 to exit")
@@ -173,22 +173,22 @@ def add_a_stop():
             if row["route_name"] == full_route_name:
                 total_distance += float(row["distance_km"])
         print("")
-        new_distance = input(f"How far is {new_stop} from {chosen_route[int(connection_choice) - 1]}? Enter 0.1 to {total_distance} km, or 0 to exit: ").strip()
+        new_distance = input(f"How far is {new_stop} from {chosen_route[int(connection_choice) - 1]}? Enter 0.1 to {total_distance:.2f} km, or 0 to exit: ").strip()
         if new_distance == "0":
             return 
         if "nan" in new_distance.lower():
             print("")
-            print(f"Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit")
+            print(f"Invalid distance. Enter a number from 0.1 to {total_distance:.2f} km or enter 0 to exit")
             continue
         try:
             floated_distance = float(new_distance)
         except ValueError:
             print("")
-            print(f"Invalid distance. Enter a number from 0.1 to {total_distance} km or enter 0 to exit")
+            print(f"Invalid distance. Enter a number from 0.1 to {total_distance:.2f} km or enter 0 to exit")
             continue
         if floated_distance > total_distance or floated_distance < 0.1:
             print("")
-            print(f"Distance must be between 0.1 and {total_distance} km. Please try again or enter 0 to exit")
+            print(f"Distance must be between 0.1 and {total_distance:.2f} km. Please try again or enter 0 to exit")
         else:
             break
 
@@ -203,14 +203,31 @@ def add_a_stop():
             print("")
             print("Invalid input. Please enter Y or N only")
 
+    try:
+        new_segment = {
+            "route_name": full_route_name,
+            "stop_a": chosen_route[int(connection_choice) - 1],
+            "stop_b": new_stop,
+            "distance_km": new_distance
+            }
+        add_route(new_segment)
+        append_csv(DATA_DIR / "stops.csv", {"stop_name": new_stop})
+        print("")
+        print("------------------------")
+        print("stop successfully added!")  
+        print("------------------------") 
+    except:
+        print("Saving failed. Please contact technical support")
+        
+
+
     
 
 # Author: Jose Paolo Aguiluz 
 def add_a_segment():
-    """This function lets the user add a new segment between two nonconnected stops and save it to routes.csv using write_csv. 
+    """This function lets the user add a new segment between two nonconnected stops and save it to routes.csv using add_route function. 
     It takes no parameters and does not return an output."""
-    print("")
-    print("--------------------------->")
+    
     csv_routes = read_routes()
     full_route_name = choose_route()
     if full_route_name == None:
@@ -294,22 +311,22 @@ def add_a_segment():
             if row["route_name"] == full_route_name:
                 total_distance += float(row["distance_km"])
         
-        new_distance = input(f"Distance in km between {chosen_route[int(stop_1) -1]} and {chosen_route[int(stop_2) -1]} (0.1 to less than {total_distance} km): ").strip()
+        new_distance = input(f"Distance in km between {chosen_route[int(stop_1) -1]} and {chosen_route[int(stop_2) -1]} (0.1 to less than {total_distance:.2f} km): ").strip()
         if new_distance == "0":
             return 
         if "nan" in new_distance.lower():
             print("")
-            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit")
+            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance:.2f} km or enter 0 to exit")
             continue
         try:
             floated_distance = float(new_distance)
         except ValueError:
             print("")
-            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance} km or enter 0 to exit")
+            print(f"Invalid distance. Enter a number from 0.1 to less than {total_distance:.2f} km or enter 0 to exit")
             continue
         if floated_distance >= total_distance or floated_distance < 0.1:
             print("")
-            print(f"Distance must be between 0.1 and less than {total_distance} km. Please try again or enter 0 to exit")
+            print(f"Distance must be between 0.1 and less than {total_distance:.2f} km. Please try again or enter 0 to exit")
         else:
             break
 
@@ -323,7 +340,22 @@ def add_a_segment():
         else:
             print("")
             print("Invalid input. Please enter Y or N only")
-    
+
+    try:
+        new_segment = {
+            "route_name": full_route_name,
+            "stop_a": chosen_route[int(stop_1) - 1],
+            "stop_b": chosen_route[int(stop_2) - 1],
+            "distance_km": new_distance
+            }
+        add_route(new_segment)
+        print("")
+        print("---------------------------")
+        print("segment successfully added!")  
+        print("---------------------------") 
+    except:
+        print("Saving failed. Please contact technical support")
+
         
         
         
