@@ -6,6 +6,9 @@ from src.lib.io.routes import read_routes
 from src.lib.constants import DATA_DIR
 from src.lib.io import append_csv
 from src.lib.io.routes import add_route
+from src.lib.io.routes import remove_route
+from src.lib.io.stops import overwrite_stops
+
 
 
 # Author: Jose Paolo Aguiluz
@@ -31,7 +34,7 @@ def admin_mode_choices():
         if choice.strip() == "1":
             add_a_stop()
         elif choice.strip() == "2":
-            print("remove_a_stop function here")
+            remove_a_stop()
         elif choice.strip() == "3":
             add_a_segment()
         elif choice.strip() == "4":
@@ -356,10 +359,108 @@ def add_a_segment():
     except:
         print("Saving failed. Please contact technical support")
 
-        
-        
-        
 
+# Author: Jose Paolo Aguiluz         
+def remove_a_stop():
+    """This function lets the user remove a stop from a chosen route using remove_route function. 
+    It then joins the remaining segments from its neighbors using add_route. If no other route uses
+    the stop, it is removed from stops.csv using overwrite_stops. This function does not have any parameters
+    and returns no value."""  
+    csv_routes = read_routes()    
+    full_route_name = choose_route()
+    if full_route_name == None:
+        return
 
+    endpoints = full_route_name.split(" ", 1)[1]
+    endpoint_parts = endpoints.split(" - ")    
 
+    while True:
+        chosen_route = []
+        for row in csv_routes:
+            if row["route_name"] == full_route_name:
+                if row["stop_a"] not in chosen_route:
+                    chosen_route.append(row["stop_a"])
+                if row["stop_b"] not in chosen_route:
+                    chosen_route.append(row["stop_b"])
 
+        counter = 1
+        for places in chosen_route:
+            print(f"[{counter}] {places}")
+            counter += 1
+
+        print("Enter 0 to exit")
+        delete_choice = input("Which stop would you like to remove?: ").strip()
+        if delete_choice == "0":
+            return
+        if not delete_choice.isdigit():
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        elif int(delete_choice) > len(chosen_route) or int(delete_choice) < 1:
+            print("")
+            print(f"Invalid choice. Enter a number from 1 to {len(chosen_route)} or enter 0 to exit")
+            print("")
+        elif chosen_route[int(delete_choice) - 1] in endpoint_parts:
+            print("")
+            print(f"{endpoint_parts[0]} and {endpoint_parts[1]} are the end points of {full_route_name} and can't be removed. Please choose another stop or enter 0 to exit.")
+            print("")
+        else:
+            break
+
+    delete_stop = chosen_route[int(delete_choice) - 1]
+    neighbors = []
+    for item in csv_routes:
+        if item["route_name"] == full_route_name: 
+            if delete_stop == item["stop_a"]:
+                neighbors.append((item["stop_b"], item["distance_km"]))
+            elif delete_stop == item["stop_b"]:
+                neighbors.append((item["stop_a"], item["distance_km"]))  
+
+    while True:
+        print("")
+        save_stop = input("Remove this stop? (Y/N): ").strip().lower()
+        print("")
+        if save_stop == "y":
+            break
+        elif save_stop == "n":
+            return
+        else:
+            print("")
+            print("Invalid input. Please enter Y or N only")       
+
+    try:
+        for neighbor in neighbors:
+            delete_segment_neighbor = {
+                "route_name": full_route_name,
+                "stop_a": delete_stop,
+                "stop_b": neighbor[0]
+            }
+            remove_route(delete_segment_neighbor)
+
+        for i in range(len(neighbors)):
+            for j in range(i + 1, len(neighbors)):
+                connect_new_neighbors = {
+                    "route_name": full_route_name,
+                    "stop_a": neighbors[i][0],
+                    "stop_b": neighbors[j][0],
+                    "distance_km": float(neighbors[i][1]) + float(neighbors[j][1]) 
+                }
+                add_route(connect_new_neighbors)
+
+        checker = False
+        for item in csv_routes:
+            if item["route_name"] != full_route_name:
+                if delete_stop == item["stop_a"] or delete_stop == item["stop_b"]:
+                    checker = True
+        if checker == False:
+            listed_stops = read_stops()
+            new_csv_stops = []
+            for item in listed_stops:
+                if item["stop_name"] != delete_stop:
+                    new_csv_stops.append(item)
+
+            overwrite_stops(new_csv_stops)
+        print("")
+        print(f"{delete_stop} successfully removed!")
+    except:
+        print("Removal failed. Please contact technical support.")

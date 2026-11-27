@@ -15,7 +15,7 @@ DEFINE function admin_mode_choices with no parameters
             IF choice equal to "1" THEN
                   CALL add_a_stop function 
             ELSE IF choice equal to "2" THEN
-                  CALL remove a stop function (function to be decided)
+                  CALL remove_a_stop function
             ELSE IF choice equal to "3" THEN
                   CALL add_a_segment function
             ELSE IF choice equal to "4" THEN
@@ -286,6 +286,110 @@ END FUNCTION
 
 
 
+DEFINE function remove_a_stop with no parameters
+      CALL read_routes function and save to a variable csv_routes
+      CALL choose_route and save the result to full_route_name
+      IF full_route_name equal to NONE THEN
+            RETURN to admin mode
+      END IF
+      SPLIT full_route_name by the whitespace at most 1 keeping index[1] and SAVE to the variable endpoints
+      SPLIT endpoints by the hyphen and spaces " - " and SAVE to the variable endpoint_parts 
+      WHILE TRUE
+            SET chosen_route to an empty list
+            FOR each row in csv_routes
+                  IF route_name of row equal to full_route_name THEN
+                        IF stop_a of row not in chosen_route THEN
+                              ADD stop_a of row to chosen_route
+                        END IF
+                        IF stop_b of row not in chosen_route THEN
+                              ADD stop_b of row to chosen_route
+                        END IF
+                  END IF
+            END FOR
+            DISPLAY chosen_route in this format "[number] stop name"
+            DISPLAY "Enter 0 to exit"
+            DISPLAY "Which stop would you like to remove?: "
+            SAVE response to delete_choice
+            APPLY strip method to delete_choice
+            IF delete_choice equal to "0" THEN
+                  RETURN to admin mode menu
+            END IF
+            IF delete_choice not equal to whole number THEN
+                  DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+            ELSE IF delete_choice is greater than length of chosen_route or delete_choice is less than 1 THEN
+                  DISPLAY "Invalid choice. Enter a number from 1 to {length of chosen_route} or enter 0 to exit"
+            ELSE IF the name of the chosen stop to be deleted found in endpoint_parts THEN
+                  DISPLAY in this format "{endpoint_parts[0]} and {endpoint_parts[1]} are the end points of {full_route_name} and can't be removed. Please choose another stop or enter 0 to exit."
+            ELSE 
+                  break
+            END IF
+      END WHILE
+      SAVE the stop name in chosen_route using the stop number delete_choice to delete_stop
+      SET neighbors to an empty list
+      FOR each item in csv_routes
+            IF route_name of item equal to full_route_name THEN
+                  IF delete_stop equal to stop_a of item THEN
+                        APPEND stop_b of item and distance_km of item to neighbors
+                  ELSE IF delete_stop equal to stop_b of item THEN
+                        APPEND stop_a of item and distance_km of item to neighbors
+                  END IF
+            END IF
+      END FOR
+      WHILE TRUE
+            DISPLAY "Remove this stop? (Y/N): "
+            ASSIGN response to variable save_stop
+            APPLY strip and lower method to save_stop
+            IF save_stop equal to "y" THEN
+                  break
+            ELSE IF save_stop equal to "n" THEN
+                  RETURN to admin mode menu
+            ELSE
+                  DISPLAY "Invalid input. Please enter Y or N only"
+            END IF
+      END WHILE
+      TRY
+            FOR each neighbor in neighbors
+                  SET delete_segment_neighbor into a dictionary with these keys and values
+                  "route_name": full_route_name,
+                  "stop_a": delete_stop,
+                  "stop_b": neighbor[0]
+                  CALL remove_route with delete_segment_neighbor as its argument
+            END FOR
+            FOR i starting from 0 to the length of neighbors minus one
+                  FOR j starting from i plus one to length of neighbors minus one
+                        SET connect_new_neighbors into a dictionary with these keys and values
+                        "route_name": full_route_name,
+                        "stop_a": neighbors[i][0],
+                        "stop_b": neighbors[j][0],
+                        "distance_km": float(neighbors[i][1]) + float(neighbors[j][1])
+                        CALL add_route with connect_new_neighbors as its argument
+                  END FOR
+            END FOR
+            SET checker to FALSE
+            FOR each item in csv_routes
+                  IF route_name of item not equal to full_route_name THEN
+                        IF delete_stop equal to stop_a of item or delete_stop equal to stop_b of item THEN
+                              SET checker to True
+                        END IF
+                  END IF
+            END FOR
+            IF checker equal to FALSE THEN
+                  CALL read_stops and save to variable called listed_stops
+                  SET new_csv_stops to an empty list
+                  FOR each stop in listed_stops
+                        IF stop_name of stop not equal to delete_stop THEN
+                              APPEND stop to new_csv_stops
+                        END IF
+                  END FOR
+                  CALL overwrite_stops with new_csv_stops as its argument
+            END IF
+            DISPLAY in this format "{delete_stop} successfully removed!"
+      EXCEPT
+            DISPLAY "Removal failed. Please contact technical support."
+      END TRY
+END FUNCTION
+
+
 START
 DECLARE admin_mode_user_attempt, checker_result
 SET checker_result to FALSE
@@ -311,3 +415,5 @@ ELSE
      return to main menu
 END IF
 END
+
+
