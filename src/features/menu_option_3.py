@@ -443,7 +443,7 @@ def remove_a_stop():
                     "route_name": full_route_name,
                     "stop_a": neighbors[i][0],
                     "stop_b": neighbors[j][0],
-                    "distance_km": float(neighbors[i][1]) + float(neighbors[j][1]) 
+                    "distance_km": round(float(neighbors[i][1]) + float(neighbors[j][1]), 2) 
                 }
                 add_route(connect_new_neighbors)
 
