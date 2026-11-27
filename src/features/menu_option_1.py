@@ -9,6 +9,7 @@ import math
 from src.lib.setup import get_group_settings
 from src.lib.utils import find_all_paths, stop_names
 from src.lib.io.trip_history import add_trip_history
+from src.features.menu_option_4 import rank_paths_by_fewest_transfers
 
 # Author: Reiniel Dan Pablo
 def validate_input_stop(label):
@@ -108,6 +109,11 @@ def find_route(origin, destination, passenger_type, sort_choice):
     """
     print("Searching...")
     paths = find_all_paths(start=origin, end=destination)
+
+    # Fewest transfers: keep only the top 3 paths, in ranked order.
+    if sort_choice == "3":
+        ranked = rank_paths_by_fewest_transfers(paths)
+        paths = [path for path, transfers in ranked]
     print(f"Found {len(paths)}. Sorted by SORT_TYPE_PLACEHOLDER")
 
     #TODO: Use sort_choice to sort the found list of possible paths to take

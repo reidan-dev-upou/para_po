@@ -1,3 +1,7 @@
 date,member_name,hours,what_i_did,functions_touched,problems_met
 2026-11-14,Dan Louis Faurillo,0.1,Created contribution_log_LOUIS.csv,none yet,none
 2026-11-14,Dan Louis Faurillo,1.0,Wrote fewest transfers ranking pseudocode,rank_paths_by_fewest_transfers,none
+2026-11-20,Dan Louis Faurillo,0.1,Moved fewest transfers pseudocode to menu_option_4,none,none
+2026-11-26,Dan Louis Faurillo,0.1,Renamed segment fields in fewest transfers pseudocode to match find_all_paths,rank_paths_by_fewest_transfers,none
+2026-11-26,Dan Louis Faurillo,2.5,Wrote rank_paths_by_fewest_transfers function in menu_option_4.py,rank_paths_by_fewest_transfers,none
+2026-11-26,Dan Louis Faurillo,0.5,Wired fewest transfers sort (choice 3) into find_route and tested Cubao to SM City Araneta,"find_route, rank_paths_by_fewest_transfers",none
