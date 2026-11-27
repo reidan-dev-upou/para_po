@@ -22,7 +22,7 @@ def get_most_searched_destinations():
     trip_history = read_trip_history()
     if not trip_history:
         print("No trip history available")
-        return
+        return []
 
     destination_counts = {}
 
@@ -48,6 +48,7 @@ def get_most_searched_destinations():
 
     rank = 0
     previous_count = None
+    ranked_destinations = []
 
     for name in names[:5]:
         count = counts[name]
@@ -56,4 +57,7 @@ def get_most_searched_destinations():
             rank += 1
 
         print(rank, name, count)
+        ranked_destinations.append((rank, name, count))
         previous_count = count
+
+    return ranked_destinations
